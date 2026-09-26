@@ -1,0 +1,118 @@
+{
+  "project": "YDII Professional v2",
+  "generated_at": "2026-09-26T22:57:25+00:00",
+  "status": "DEVELOPMENT_DASHBOARD",
+  "notice_ar": "لوحة تجميع فنية للمشروع. لا تمثل سجل .ye الرسمي ولا جهة حكومية، ونتائج الرصد الحي تعكس لحظة الفحص فقط.",
+  "registry": {
+    "architecture_status": "DRAFT_ARCHITECTURE",
+    "actors": 5,
+    "security_controls": 10
+  },
+  "namespace": {
+    "zones_total": 12,
+    "by_status": {
+      "CURRENT": 4,
+      "RESTRICTED": 2,
+      "PROPOSED": 5,
+      "RESEARCH": 1
+    }
+  },
+  "directory": {
+    "sectors_total": 9,
+    "entities_total": 47,
+    "by_sector": {
+      "ministries": 26,
+      "universities": 21,
+      "authorities": 0,
+      "schools": 0,
+      "companies": 0,
+      "banks": 0,
+      "telecom": 0,
+      "healthcare": 0,
+      "organizations": 0
+    }
+  },
+  "policies": {
+    "count": 13,
+    "status": "DRAFT_POLICY_LIBRARY"
+  },
+  "gcc": {
+    "countries": 6
+  },
+  "observatory": {
+    "generated_at": "2026-09-26T22:47:19+00:00",
+    "mode": "LIVE_OBSERVATION",
+    "summary": {
+      "targets_checked": 5,
+      "dns_ipv4_present": 0,
+      "dns_ipv6_present": 0,
+      "tls_valid": 0,
+      "https_responded": 0,
+      "rdap_found": 3,
+      "dnssec_ds_or_rrsig_evidence": 0
+    }
+  },
+  "domain_search": {
+    "sample_query": "yemenai",
+    "sample_mode": "LIVE_RDAP",
+    "sample_results": 11
+  },
+  "milestones": [
+    {
+      "id": "baseline",
+      "name": "Baseline / Backup",
+      "status": "COMPLETE"
+    },
+    {
+      "id": "gcc",
+      "name": "GCC Benchmark",
+      "status": "COMPLETE"
+    },
+    {
+      "id": "namespace",
+      "name": "YE Namespace Model",
+      "status": "COMPLETE"
+    },
+    {
+      "id": "directory",
+      "name": "National Directory",
+      "status": "COMPLETE"
+    },
+    {
+      "id": "registry",
+      "name": "Registry / Registrar",
+      "status": "COMPLETE"
+    },
+    {
+      "id": "eligibility",
+      "name": "Eligibility Engine",
+      "status": "COMPLETE"
+    },
+    {
+      "id": "policies",
+      "name": "Policy Center",
+      "status": "COMPLETE"
+    },
+    {
+      "id": "observatory",
+      "name": "Live Observatory",
+      "status": "COMPLETE"
+    },
+    {
+      "id": "search",
+      "name": "Domain Search",
+      "status": "COMPLETE"
+    },
+    {
+      "id": "dashboard",
+      "name": "National Dashboard",
+      "status": "COMPLETE"
+    }
+  ],
+  "warnings": [
+    "Live observations are not proof of ownership or registration eligibility.",
+    "NOT_FOUND_IN_RDAP does not mean AVAILABLE.",
+    "DNSSEC evidence in Step 8 is not full cryptographic validation.",
+    "Proposed namespace labels remain non-operational research proposals."
+  ]
+}

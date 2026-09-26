@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>National Observatory Dashboard | YDII</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body{background:#f3f7fb;color:#17212b}
+    .wrap{max-width:1240px;margin:auto;padding:42px 22px 90px}
+    .hero{background:#071426;color:#fff;border-radius:28px;padding:36px}
+    .hero h1{font-size:40px;margin:0 0 10px}
+    .hero p{color:#c8d4e3;max-width:940px}
+    .notice{margin:18px 0;background:#fff5cf;border-right:4px solid #d69d12;border-radius:12px;padding:14px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:22px}
+    .stat{background:#fff;border:1px solid #dce5ed;border-radius:18px;padding:18px}
+    .stat span{color:#66758a;font-size:13px}
+    .stat b{display:block;font-size:29px;margin-top:5px}
+    .section{margin-top:28px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+    .card{background:#fff;border:1px solid #dce5ed;border-radius:18px;padding:20px}
+    .row{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #edf1f5;padding:8px 0}
+    .row:first-of-type{border-top:0}
+    .value{direction:ltr;text-align:left;font-weight:700}
+    .milestone{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #edf1f5;padding:9px 0}
+    .badge{border-radius:999px;background:#edf3f8;padding:5px 9px;font-size:11px;font-weight:700}
+    .warning{color:#705700}
+    @media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:700px){.stats,.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <h1>National Observatory Dashboard</h1>
+    <p>لوحة موحدة تجمع حالة بنية YDII، الدليل الوطني، السياسات، الرصد الحي، والبحث في النطاقات دون خلط بين البيانات الثابتة والنتائج التشغيلية.</p>
+  </section>
+
+  <div class="notice">
+    DEVELOPMENT DASHBOARD — لا تمثل هذه اللوحة سجل .ye الرسمي أو جهة حكومية.
+  </div>
+
+  <section id="stats" class="stats"></section>
+
+  <section class="section grid">
+    <article class="card">
+      <h2>Registry Architecture</h2>
+      <div id="registry"></div>
+    </article>
+
+    <article class="card">
+      <h2>Namespace Model</h2>
+      <div id="namespace"></div>
+    </article>
+
+    <article class="card">
+      <h2>National Directory</h2>
+      <div id="directory"></div>
+    </article>
+
+    <article class="card">
+      <h2>Live Observatory</h2>
+      <div id="observatory"></div>
+    </article>
+  </section>
+
+  <section class="section grid">
+    <article class="card">
+      <h2>Milestones</h2>
+      <div id="milestones"></div>
+    </article>
+
+    <article class="card">
+      <h2>Safety & Data Integrity</h2>
+      <div id="warnings"></div>
+    </article>
+  </section>
+</main>
+
+<script>
+fetch('data/national-dashboard.json')
+  .then(r=>r.json())
+  .then(d=>{
+    const obs=d.observatory.summary||{};
+    const stats=[
+      ['Directory entities',d.directory.entities_total],
+      ['Policies',d.policies.count],
+      ['GCC countries',d.gcc.countries],
+      ['Live targets',obs.targets_checked||0],
+      ['IPv4 observed',obs.dns_ipv4_present||0],
+      ['IPv6 observed',obs.dns_ipv6_present||0],
+      ['TLS valid',obs.tls_valid||0],
+      ['RDAP found',obs.rdap_found||0]
+    ];
+
+    document.getElementById('stats').innerHTML=stats.map(x=>`
+      <article class="stat"><span>${x[0]}</span><b>${x[1]}</b></article>
+    `).join('');
+
+    document.getElementById('registry').innerHTML=`
+      <div class="row"><span>Status</span><span class="value">${d.registry.architecture_status}</span></div>
+      <div class="row"><span>Actors</span><span class="value">${d.registry.actors}</span></div>
+      <div class="row"><span>Security controls</span><span class="value">${d.registry.security_controls}</span></div>
+    `;
+
+    document.getElementById('namespace').innerHTML=
+      `<div class="row"><span>Total zones</span><span class="value">${d.namespace.zones_total}</span></div>` +
+      Object.entries(d.namespace.by_status).map(([k,v])=>
+        `<div class="row"><span>${k}</span><span class="value">${v}</span></div>`
+      ).join('');
+
+    document.getElementById('directory').innerHTML=
+      `<div class="row"><span>Sectors</span><span class="value">${d.directory.sectors_total}</span></div>` +
+      `<div class="row"><span>Entities</span><span class="value">${d.directory.entities_total}</span></div>` +
+      Object.entries(d.directory.by_sector).map(([k,v])=>
+        `<div class="row"><span>${k}</span><span class="value">${v}</span></div>`
+      ).join('');
+
+    document.getElementById('observatory').innerHTML=`
+      <div class="row"><span>Mode</span><span class="value">${d.observatory.mode}</span></div>
+      <div class="row"><span>Generated</span><span class="value">${d.observatory.generated_at||'—'}</span></div>
+      <div class="row"><span>HTTPS responded</span><span class="value">${obs.https_responded||0}</span></div>
+      <div class="row"><span>DNSSEC evidence</span><span class="value">${obs.dnssec_ds_or_rrsig_evidence||0}</span></div>
+    `;
+
+    document.getElementById('milestones').innerHTML=d.milestones.map(x=>`
+      <div class="milestone">
+        <span>${x.name}</span>
+        <span class="badge">${x.status}</span>
+      </div>
+    `).join('');
+
+    document.getElementById('warnings').innerHTML=d.warnings.map(x=>
+      `<p class="warning">• ${x}</p>`
+    ).join('');
+  });
+</script>
+</body>
+</html>
