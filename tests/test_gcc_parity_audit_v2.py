@@ -40,9 +40,9 @@ class TestGCCParityAuditV2(unittest.TestCase):
         ]:
             self.assertEqual(rows[rid]["state"],"COVERED",rid)
 
-    def test_security_ci_is_partial_before_step13(self):
+    def test_security_ci_is_covered_after_step13(self):
         rows={x["id"]:x for x in self.data["requirements"]}
-        self.assertEqual(rows["security-ci-gates"]["state"],"PARTIAL")
+        self.assertEqual(rows["security-ci-gates"]["state"],"COVERED")
 
     def test_page_exists(self):
         html=(ROOT/"site/gcc-parity-audit.html").read_text(encoding="utf-8")

@@ -4,20 +4,29 @@
   "version": "2.0",
   "updated": "2026-09-27",
   "methodology": "Technical and governance coverage audit against patterns documented in the GCC benchmark dataset. This is not a country ranking or score.",
-  "states": ["COVERED", "PARTIAL", "PLANNED", "NOT_APPLICABLE"],
+  "states": [
+    "COVERED",
+    "PARTIAL",
+    "PLANNED",
+    "NOT_APPLICABLE"
+  ],
   "requirements": [
     {
       "id": "national-cctld-model",
       "name_ar": "نموذج النطاق الوطني",
       "name_en": "National ccTLD model",
-      "evidence": ["data/yemen/namespace-model.json"],
+      "evidence": [
+        "data/yemen/namespace-model.json"
+      ],
       "category": "namespace"
     },
     {
       "id": "registry-registrar-separation",
       "name_ar": "فصل السجل عن المسجل",
       "name_en": "Registry / Registrar separation",
-      "evidence": ["data/registry/registry-model.json"],
+      "evidence": [
+        "data/registry/registry-model.json"
+      ],
       "category": "registry"
     },
     {
@@ -45,7 +54,9 @@
       "id": "reserved-names",
       "name_ar": "الأسماء المحجوزة",
       "name_en": "Reserved names",
-      "evidence": ["policies/reserved-names.md"],
+      "evidence": [
+        "policies/reserved-names.md"
+      ],
       "category": "policy"
     },
     {
@@ -62,14 +73,18 @@
       "id": "renewal-expiry",
       "name_ar": "التجديد والانتهاء",
       "name_en": "Renewal / expiry",
-      "evidence": ["policies/renewal-expiry.md"],
+      "evidence": [
+        "policies/renewal-expiry.md"
+      ],
       "category": "policy"
     },
     {
       "id": "domain-transfer",
       "name_ar": "نقل النطاق",
       "name_en": "Domain transfer",
-      "evidence": ["policies/transfer.md"],
+      "evidence": [
+        "policies/transfer.md"
+      ],
       "category": "policy"
     },
     {
@@ -86,7 +101,9 @@
       "id": "whois-transition",
       "name_ar": "WHOIS والانتقال إلى RDAP",
       "name_en": "WHOIS / RDAP transition",
-      "evidence": ["policies/whois-transition.md"],
+      "evidence": [
+        "policies/whois-transition.md"
+      ],
       "category": "registration-data"
     },
     {
@@ -103,28 +120,36 @@
       "id": "ipv6-observability",
       "name_ar": "رصد IPv6",
       "name_en": "IPv6 observability",
-      "evidence": ["scripts/observatory_probe.py"],
+      "evidence": [
+        "scripts/observatory_probe.py"
+      ],
       "category": "observability"
     },
     {
       "id": "tls-observability",
       "name_ar": "رصد HTTPS/TLS",
       "name_en": "HTTPS / TLS observability",
-      "evidence": ["scripts/observatory_probe.py"],
+      "evidence": [
+        "scripts/observatory_probe.py"
+      ],
       "category": "observability"
     },
     {
       "id": "abuse-management",
       "name_ar": "إدارة إساءة الاستخدام",
       "name_en": "Abuse management",
-      "evidence": ["policies/abuse.md"],
+      "evidence": [
+        "policies/abuse.md"
+      ],
       "category": "security"
     },
     {
       "id": "domain-disputes",
       "name_ar": "نزاعات أسماء النطاق",
       "name_en": "Domain disputes",
-      "evidence": ["policies/disputes.md"],
+      "evidence": [
+        "policies/disputes.md"
+      ],
       "category": "governance"
     },
     {
@@ -183,11 +208,12 @@
       "name_ar": "بوابات الأمن وCI",
       "name_en": "Security and CI gates",
       "evidence": [
-        ".github/workflows/ci.yml"
+        ".github/workflows/ydii-v2-security-ci.yml",
+        "scripts/security_gate.py",
+        "scripts/release_readiness.py"
       ],
       "category": "engineering",
-      "force_state": "PARTIAL",
-      "note_ar": "يوجد CI أساسي، لكن بوابات الأمن والإطلاق الإنتاجية الكاملة ستضاف في Step 13."
+      "note_ar": "توجد بوابات CI وأمن ونزاهة وإطلاق قابلة للتنفيذ محليًا وعلى GitHub Actions."
     }
   ]
 }

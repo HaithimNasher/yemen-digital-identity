@@ -1,6 +1,6 @@
 {
   "project": "YDII Professional v2",
-  "generated_at": "2026-09-26T23:33:09+00:00",
+  "generated_at": "2026-09-26T23:38:46+00:00",
   "status": "TECHNICAL_COVERAGE_AUDIT",
   "methodology": "Technical and governance coverage audit against patterns documented in the GCC benchmark dataset. This is not a country ranking or score.",
   "gcc_reference_countries": [
@@ -31,8 +31,8 @@
   ],
   "summary": {
     "requirements": 21,
-    "covered": 20,
-    "partial": 1,
+    "covered": 21,
+    "partial": 0,
     "planned": 0,
     "not_applicable": 0
   },
@@ -99,8 +99,8 @@
     },
     "engineering": {
       "requirements": 1,
-      "covered": 0,
-      "partial": 1,
+      "covered": 1,
+      "partial": 0,
       "planned": 0
     }
   },
@@ -362,16 +362,16 @@
       "name_ar": "بوابات الأمن وCI",
       "name_en": "Security and CI gates",
       "category": "engineering",
-      "state": "PARTIAL",
+      "state": "COVERED",
       "evidence_found": [
-        ".github/workflows/ci.yml"
+        ".github/workflows/ydii-v2-security-ci.yml",
+        "scripts/security_gate.py",
+        "scripts/release_readiness.py"
       ],
       "evidence_missing": [],
-      "note_ar": "يوجد CI أساسي، لكن بوابات الأمن والإطلاق الإنتاجية الكاملة ستضاف في Step 13."
+      "note_ar": "توجد بوابات CI وأمن ونزاهة وإطلاق قابلة للتنفيذ محليًا وعلى GitHub Actions."
     }
   ],
   "interpretation_ar": "هذه مصفوفة تغطية فنية لمكونات المشروع، وليست ترتيبًا أو تقييمًا للدول الخليجية، ولا تثبت الجاهزية التشغيلية لسجل وطني.",
-  "next_priority": [
-    "security-ci-gates"
-  ]
+  "next_priority": []
 }
