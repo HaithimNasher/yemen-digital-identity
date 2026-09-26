@@ -1,0 +1,44 @@
+{
+  "sources": [
+    {
+      "name": "IANA .ye delegation",
+      "url": "https://www.iana.org/domains/root/db/ye.html",
+      "type": "official"
+    },
+    {
+      "name": "IANA Root Zone Database",
+      "url": "https://www.iana.org/domains/root/db",
+      "type": "official"
+    },
+    {
+      "name": "SaudiNIC",
+      "url": "https://www.nic.sa/",
+      "type": "official"
+    },
+    {
+      "name": "UAE TDRA",
+      "url": "https://tdra.gov.ae/",
+      "type": "official"
+    },
+    {
+      "name": "Qatar CRA",
+      "url": "https://www.cra.gov.qa/",
+      "type": "official"
+    },
+    {
+      "name": "Kuwait NIC",
+      "url": "https://www.nic.kw/",
+      "type": "official"
+    },
+    {
+      "name": "Oman Registry",
+      "url": "https://www.registry.om/",
+      "type": "official"
+    },
+    {
+      "name": "Bahrain TRA",
+      "url": "https://www.tra.org.bh/",
+      "type": "official"
+    }
+  ]
+}

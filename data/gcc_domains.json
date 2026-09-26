@@ -1,0 +1,41 @@
+{
+  "generated_for": "YDII v0.1 starter",
+  "note": "Research dataset; verify against official registries before publication.",
+  "countries": [
+    {
+      "country_ar": "السعودية",
+      "ccTLD": ".sa",
+      "idn": ".السعودية"
+    },
+    {
+      "country_ar": "الإمارات",
+      "ccTLD": ".ae",
+      "idn": ".امارات"
+    },
+    {
+      "country_ar": "قطر",
+      "ccTLD": ".qa",
+      "idn": ".قطر"
+    },
+    {
+      "country_ar": "الكويت",
+      "ccTLD": ".kw",
+      "idn": null
+    },
+    {
+      "country_ar": "عُمان",
+      "ccTLD": ".om",
+      "idn": ".عمان"
+    },
+    {
+      "country_ar": "البحرين",
+      "ccTLD": ".bh",
+      "idn": ".البحرين"
+    },
+    {
+      "country_ar": "اليمن",
+      "ccTLD": ".ye",
+      "idn": "بحث/غير مؤكد في هذا المشروع"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+name: Research task
+description: مهمة بحثية موثقة
+title: "[Research] "
+labels: ["research"]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: الموضوع
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: سؤال البحث
+    validations:
+      required: true
+  - type: textarea
+    id: official_sources
+    attributes:
+      label: المصادر الرسمية المطلوبة

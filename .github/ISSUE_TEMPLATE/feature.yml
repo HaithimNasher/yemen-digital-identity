@@ -1,0 +1,22 @@
+name: Feature proposal
+description: اقترح ميزة أو مسار بحثي
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: المشكلة أو الحاجة
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: المقترح
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: المصادر
+      description: أضف مصادر رسمية إن كان المقترح يتضمن معلومات تنظيمية أو تقنية.
