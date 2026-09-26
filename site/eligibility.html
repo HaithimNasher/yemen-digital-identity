@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Eligibility Engine | YDII</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body{background:#f5f8fc;color:#18202b}
+    .wrap{max-width:1100px;margin:auto;padding:42px 22px 90px}
+    .hero{background:#091225;color:white;border-radius:26px;padding:34px}
+    .hero h1{font-size:38px;margin:0 0 10px}
+    .hero p{color:#c7d1e5;max-width:850px}
+    .notice{margin:18px 0;background:#fff5cf;border-right:4px solid #d69d12;border-radius:12px;padding:14px}
+    .panel{background:white;border:1px solid #dfe5ee;border-radius:20px;padding:22px;margin-top:18px}
+    .form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    label{display:block;font-size:13px;color:#647187;margin-bottom:5px}
+    select,input,button{width:100%;padding:12px 14px;border:1px solid #cad3df;border-radius:11px;font-size:15px}
+    button{background:#0b7285;color:white;border:0;cursor:pointer;font-weight:700}
+    .result{margin-top:16px;border-radius:15px;background:#f7f9fc;padding:18px}
+    .decision{font-size:25px;font-weight:900;direction:ltr;text-align:right}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
+    .rule{background:white;border:1px solid #dfe5ee;border-radius:16px;padding:18px}
+    .zone{font-size:22px;font-weight:800;direction:ltr;text-align:right;color:#08728e}
+    .badge{display:inline-block;background:#edf3f8;border-radius:999px;padding:4px 8px;font-size:11px;margin-top:6px}
+    @media(max-width:750px){.form,.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <h1>Eligibility Engine</h1>
+    <p>محرك تجريبي لتقييم قواعد الأهلية حسب المنطقة ونوع الجهة والمستندات المطلوبة.</p>
+  </section>
+
+  <div class="notice">
+    DRAFT POLICY ENGINE — النتيجة ليست موافقة تسجيل رسمية ولا تحققًا قانونيًا.
+  </div>
+
+  <section class="panel">
+    <div class="form">
+      <div>
+        <label>المنطقة</label>
+        <select id="zone"></select>
+      </div>
+      <div>
+        <label>نوع مقدم الطلب</label>
+        <select id="type"></select>
+      </div>
+      <div style="grid-column:1/-1">
+        <label>Evidence IDs مفصولة بفاصلة</label>
+        <input id="evidence" placeholder="institution_authorization,authorized_contact">
+      </div>
+      <div style="grid-column:1/-1">
+        <button id="check">Evaluate</button>
+      </div>
+    </div>
+
+    <div id="result" class="result">اختر البيانات ثم اضغط Evaluate.</div>
+  </section>
+
+  <section id="rules" class="grid"></section>
+</main>
+
+<script>
+let data;
+
+function evaluate(zone, applicantType, evidence){
+  const rule=data.zones.find(x=>x.zone===zone);
+  if(!rule){
+    return {decision:'UNKNOWN_ZONE',missing_evidence:[],reason_ar:'المنطقة غير معرفة.'};
+  }
+
+  if(['PROPOSED','RESEARCH'].includes(rule.namespace_status)){
+    return {decision:'PROPOSED_ZONE',missing_evidence:[],reason_ar:rule.reason_ar};
+  }
+
+  if(rule.rule_type==='manual-review'){
+    return {decision:'REVIEW_REQUIRED',missing_evidence:[],reason_ar:rule.reason_ar};
+  }
+
+  if(!rule.allowed_applicant_types.includes(applicantType)){
+    return {
+      decision:rule.decision_if_not_matched,
+      missing_evidence:[],
+      reason_ar:rule.reason_ar
+    };
+  }
+
+  const ev=new Set(evidence);
+  const missing=rule.required_evidence.filter(x=>!ev.has(x));
+  if(missing.length){
+    return {
+      decision:'REVIEW_REQUIRED',
+      missing_evidence:missing,
+      reason_ar:'نوع الجهة مناسب مبدئيًا، لكن المستندات المطلوبة غير مكتملة.'
+    };
+  }
+
+  return {
+    decision:rule.decision_if_matched,
+    missing_evidence:[],
+    reason_ar:rule.reason_ar
+  };
+}
+
+fetch('data/eligibility-rules.json')
+  .then(r=>r.json())
+  .then(d=>{
+    data=d;
+    document.getElementById('zone').innerHTML=
+      d.zones.map(x=>`<option>${x.zone}</option>`).join('');
+    document.getElementById('type').innerHTML=
+      d.applicant_types.map(x=>`<option>${x}</option>`).join('');
+
+    document.getElementById('rules').innerHTML=d.zones.map(x=>`
+      <article class="rule">
+        <div class="zone">${x.zone}</div>
+        <span class="badge">${x.namespace_status}</span>
+        <span class="badge">${x.rule_type}</span>
+        <p>${x.reason_ar}</p>
+      </article>
+    `).join('');
+  });
+
+document.getElementById('check').addEventListener('click',()=>{
+  const zone=document.getElementById('zone').value;
+  const type=document.getElementById('type').value;
+  const evidence=document.getElementById('evidence').value
+    .split(',').map(x=>x.trim()).filter(Boolean);
+
+  const r=evaluate(zone,type,evidence);
+  document.getElementById('result').innerHTML=`
+    <div class="decision">${r.decision}</div>
+    <p>${r.reason_ar}</p>
+    ${r.missing_evidence.length
+      ? `<p><b>Missing:</b> ${r.missing_evidence.join(' · ')}</p>`
+      : ''}
+  `;
+});
+</script>
+</body>
+</html>
