@@ -299,6 +299,22 @@
       ]
     },
     {
+      "category": "companies",
+      "name_ar": "الشركات",
+      "name_en": "Companies",
+      "source_type": "curated-pending",
+      "notice_ar": "لا تضاف شركة إلا ببيانات موثقة. النطاقات لا تعتبر ملكية أو تسجيلًا إلا بعد فحص مستقل.",
+      "entities": []
+    },
+    {
+      "category": "organizations",
+      "name_ar": "المنظمات والجمعيات",
+      "name_en": "Organizations & Associations",
+      "source_type": "curated-pending",
+      "notice_ar": "تضاف المنظمات والجمعيات بعد التحقق من بياناتها المؤسسية ونطاقاتها.",
+      "entities": []
+    },
+    {
       "category": "universities",
       "name_ar": "الجامعات الحكومية",
       "name_en": "Public Universities",
@@ -516,6 +532,14 @@
           "verification_status": "user-provided"
         }
       ]
+    },
+    {
+      "category": "schools",
+      "name_ar": "المدارس",
+      "name_en": "Schools",
+      "source_type": "curated-pending",
+      "notice_ar": "تضاف المدارس بعد التحقق من الاسم والموقع والجهة التعليمية المختصة. أي نطاق مقترح يبقى PROPOSED حتى التحقق.",
+      "entities": []
     }
   ]
 }

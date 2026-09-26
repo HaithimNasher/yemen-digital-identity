@@ -1,0 +1,96 @@
+{
+  "project": "YDII Professional v2",
+  "dataset": "National Entity Directory Manifest",
+  "version": "2.0",
+  "updated": "2026-09-27",
+  "principles": [
+    "No fabricated entity records",
+    "Separate directory data from DNS/RDAP observations",
+    "Mark unverified domains explicitly",
+    "Keep proposed namespace labels separate from current namespace labels",
+    "Require provenance for every curated entity"
+  ],
+  "sectors": [
+    {
+      "id": "ministries",
+      "name_ar": "الوزارات",
+      "name_en": "Ministries",
+      "dataset": "data/entities/ministries.json",
+      "status": "ACTIVE",
+      "domain_policy": "gov.ye",
+      "sensitivity": "high"
+    },
+    {
+      "id": "universities",
+      "name_ar": "الجامعات",
+      "name_en": "Universities",
+      "dataset": "data/entities/universities.json",
+      "status": "ACTIVE",
+      "domain_policy": "edu.ye",
+      "sensitivity": "medium"
+    },
+    {
+      "id": "authorities",
+      "name_ar": "الهيئات والمؤسسات العامة",
+      "name_en": "Authorities & Public Institutions",
+      "dataset": "data/entities/authorities.json",
+      "status": "READY_FOR_CURATED_DATA",
+      "domain_policy": "gov.ye",
+      "sensitivity": "high"
+    },
+    {
+      "id": "schools",
+      "name_ar": "المدارس",
+      "name_en": "Schools",
+      "dataset": "data/entities/schools.json",
+      "status": "READY_FOR_CURATED_DATA",
+      "domain_policy": "edu.ye / proposed sch.ye",
+      "sensitivity": "medium"
+    },
+    {
+      "id": "companies",
+      "name_ar": "الشركات",
+      "name_en": "Companies",
+      "dataset": "data/entities/companies.json",
+      "status": "READY_FOR_CURATED_DATA",
+      "domain_policy": "com.ye / .ye",
+      "sensitivity": "medium"
+    },
+    {
+      "id": "banks",
+      "name_ar": "البنوك والمؤسسات المالية",
+      "name_en": "Banks & Financial Institutions",
+      "dataset": "data/entities/banks.json",
+      "status": "READY_FOR_CURATED_DATA",
+      "domain_policy": "com.ye / .ye",
+      "sensitivity": "critical"
+    },
+    {
+      "id": "telecom",
+      "name_ar": "الاتصالات ومزودو الإنترنت",
+      "name_en": "Telecom & Internet Providers",
+      "dataset": "data/entities/telecom.json",
+      "status": "READY_FOR_CURATED_DATA",
+      "domain_policy": "net.ye / com.ye / .ye",
+      "sensitivity": "high"
+    },
+    {
+      "id": "healthcare",
+      "name_ar": "القطاع الصحي",
+      "name_en": "Healthcare",
+      "dataset": "data/entities/healthcare.json",
+      "status": "READY_FOR_CURATED_DATA",
+      "domain_policy": "current namespaces / proposed med.ye",
+      "sensitivity": "high"
+    },
+    {
+      "id": "organizations",
+      "name_ar": "المنظمات والجمعيات",
+      "name_en": "Organizations & Associations",
+      "dataset": "data/entities/organizations.json",
+      "status": "READY_FOR_CURATED_DATA",
+      "domain_policy": "org.ye / .ye",
+      "sensitivity": "medium"
+    }
+  ]
+}

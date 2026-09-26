@@ -6,91 +6,137 @@
   <title>National Entity Directory | YDII</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    body{background:#f5f8fc}
+    body{background:#f5f8fc;color:#18202b}
     .wrap{max-width:1180px;margin:auto;padding:42px 22px 90px}
     .hero{background:#0a1020;color:white;border-radius:26px;padding:34px}
     .hero h1{font-size:38px;margin:0 0 10px}
-    .hero p{color:#cbd6ea}
+    .hero p{color:#cbd6ea;max-width:900px}
     .controls{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}
     input,select{padding:13px 15px;border:1px solid #ccd5e2;border-radius:12px;background:white;font-size:15px}
-    input{flex:1;min-width:230px}
-    .summary{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
-    .summary span{background:white;border:1px solid #dfe5ee;border-radius:999px;padding:8px 12px}
+    input{flex:1;min-width:240px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
+    .stat{background:white;border:1px solid #dfe5ee;border-radius:16px;padding:16px}
+    .stat b{display:block;font-size:25px}
+    .sectors{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+    .sector{background:#eef3f8;border-radius:999px;padding:7px 10px;font-size:12px}
     .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
     .card{background:white;border:1px solid #dfe5ee;border-radius:18px;padding:20px}
-    .name{font-weight:800;font-size:19px}
-    .domain{direction:ltr;text-align:right;color:#0a728e;font-weight:700}
+    .name{font-size:19px;font-weight:800}
+    .domain{direction:ltr;text-align:right;color:#08728e;font-weight:700}
     .meta{color:#677489;font-size:14px;margin-top:4px}
-    .proposed{display:inline-block;background:#fff3cd;border-radius:999px;padding:3px 8px;font-size:11px;margin-top:8px}
-    @media(max-width:800px){.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
+    .badge{display:inline-block;background:#eef3f8;border-radius:999px;padding:4px 8px;font-size:11px;margin-top:8px}
+    .proposed{background:#fff3cd}
+    .empty{grid-column:1/-1;background:white;border:1px dashed #b9c4d1;border-radius:18px;padding:30px;text-align:center;color:#66758a}
+    @media(max-width:800px){
+      .grid,.stats{grid-template-columns:1fr}
+      .hero h1{font-size:30px}
+    }
   </style>
 </head>
 <body>
 <main class="wrap">
   <section class="hero">
     <h1>National Entity Directory</h1>
-    <p>دليل بيانات منظم للجهات اليمنية، منفصل عن محرك التحقق الحي للنطاقات.</p>
+    <p>دليل وطني منظم يفصل بيانات الجهات عن مراقبة DNS/RDAP، ولا يعتبر أي نطاق مقترح نطاقًا مسجلًا أو رسميًا.</p>
   </section>
 
   <div class="controls">
     <input id="q" placeholder="ابحث بالاسم أو المدينة أو النطاق...">
     <select id="category">
-      <option value="all">كل الفئات</option>
-      <option value="ministries">الوزارات</option>
-      <option value="universities">الجامعات</option>
+      <option value="all">كل القطاعات</option>
     </select>
   </div>
 
-  <div id="summary" class="summary"></div>
+  <section id="stats" class="stats"></section>
+  <div id="sectors" class="sectors"></div>
   <section id="grid" class="grid"></section>
 </main>
 
 <script>
 let categories=[];
+let manifest=[];
 
-function flatten(){
-  return categories.flatMap(c => (c.entities || []).map(e => ({...e, category:c.category})));
+const q=document.getElementById('q');
+const select=document.getElementById('category');
+
+function flat(){
+  return categories.flatMap(c =>
+    (c.entities||[]).map(e => ({...e, category:c.category}))
+  );
+}
+
+function sectorMeta(id){
+  return manifest.find(x=>x.id===id) || {id, name_ar:id, status:'UNKNOWN'};
 }
 
 function render(){
-  const term=document.getElementById('q').value.trim().toLowerCase();
-  const cat=document.getElementById('category').value;
-  const rows=flatten().filter(x=>{
+  const term=q.value.trim().toLowerCase();
+  const cat=select.value;
+  const all=flat();
+
+  const rows=all.filter(x=>{
     const hay=[
       x.name_ar,x.name_en,x.governorate,x.city,
-      x.current_domain,x.suggested_ye_domain
+      x.current_domain,x.suggested_ye_domain,x.category
     ].filter(Boolean).join(' ').toLowerCase();
+
     return (cat==='all'||x.category===cat) && (!term||hay.includes(term));
   });
 
-  document.getElementById('summary').innerHTML=categories.map(c =>
-    `<span>${c.category}: ${(c.entities||[]).length}</span>`
-  ).join('');
+  const active=manifest.filter(x=>x.status==='ACTIVE').length;
+  const ready=manifest.filter(x=>x.status==='READY_FOR_CURATED_DATA').length;
+
+  document.getElementById('stats').innerHTML=`
+    <article class="stat"><small>القطاعات</small><b>${manifest.length}</b></article>
+    <article class="stat"><small>سجلات الدليل</small><b>${all.length}</b></article>
+    <article class="stat"><small>Active / Ready</small><b>${active} / ${ready}</b></article>
+  `;
+
+  document.getElementById('sectors').innerHTML=manifest.map(x=>{
+    const count=(categories.find(c=>c.category===x.id)?.entities||[]).length;
+    return `<span class="sector">${x.name_ar} · ${count} · ${x.status}</span>`;
+  }).join('');
+
+  if(!rows.length){
+    document.getElementById('grid').innerHTML=
+      '<div class="empty">لا توجد سجلات موثقة في هذا القطاع حتى الآن.</div>';
+    return;
+  }
 
   document.getElementById('grid').innerHTML=rows.map(x=>{
     const domain=x.current_domain || x.suggested_ye_domain || '—';
     const proposed=x.domain_status==='PROPOSED';
+    const meta=sectorMeta(x.category);
     return `
       <article class="card">
         <div class="name">${x.name_ar}</div>
         <div class="domain">${domain}</div>
         <div class="meta">${[x.governorate,x.city].filter(Boolean).join(' · ')}</div>
-        <div class="meta">${x.verification_status || ''}</div>
-        ${proposed?'<span class="proposed">PROPOSED DOMAIN</span>':''}
+        <div class="meta">${meta.name_ar} · ${x.verification_status||''}</div>
+        <span class="badge ${proposed?'proposed':''}">
+          ${x.domain_status || 'NO DOMAIN STATUS'}
+        </span>
       </article>
     `;
   }).join('');
 }
 
-fetch('data/entities.json')
-  .then(r=>r.json())
-  .then(d=>{
-    categories=d.categories||[];
-    render();
-  });
+Promise.all([
+  fetch('data/entities.json').then(r=>r.json()),
+  fetch('data/directory-manifest.json').then(r=>r.json())
+]).then(([entities,m])=>{
+  categories=entities.categories||[];
+  manifest=m.sectors||[];
 
-document.getElementById('q').addEventListener('input',render);
-document.getElementById('category').addEventListener('change',render);
+  select.innerHTML =
+    '<option value="all">كل القطاعات</option>' +
+    manifest.map(x=>`<option value="${x.id}">${x.name_ar}</option>`).join('');
+
+  render();
+});
+
+q.addEventListener('input',render);
+select.addEventListener('change',render);
 </script>
 </body>
 </html>
