@@ -20,9 +20,10 @@
     .lessons{margin-top:14px;background:#f8fafc;border-radius:12px;padding:12px}
     @media(max-width:800px){.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
   </style>
+  <link rel="stylesheet" href="ux-v2.css">
 </head>
 <body>
-<main class="wrap">
+<main id="main-content" class="wrap">
   <section class="hero">
     <h1>GCC ccTLD Benchmark</h1>
     <p>مقارنة وصفية لنماذج نطاقات السعودية والإمارات وقطر وعُمان والبحرين والكويت لبناء نموذج يمني احترافي. هذه ليست عملية ترتيب أو تقييم.</p>
@@ -51,5 +52,6 @@ fetch('data/gcc-benchmark.json')
     `).join('');
   });
 </script>
+  <script src="ux-v2.js" defer></script>
 </body>
 </html>

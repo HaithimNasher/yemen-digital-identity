@@ -27,9 +27,10 @@
     .reserved-list{display:grid;gap:12px}
     @media(max-width:800px){.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
   </style>
+  <link rel="stylesheet" href="ux-v2.css">
 </head>
 <body>
-<main class="wrap">
+<main id="main-content" class="wrap">
   <section class="hero">
     <h1>YE Namespace Model</h1>
     <p>نموذج احترافي يفصل بين النطاقات الحالية والمقيدة والمقترحة والبحثية والأسماء المحجوزة، حتى لا تختلط الحقائق التشغيلية مع المقترحات المستقبلية.</p>
@@ -73,5 +74,6 @@ fetch('data/yemen-namespace-model.json')
     `).join('');
   });
 </script>
+  <script src="ux-v2.js" defer></script>
 </body>
 </html>

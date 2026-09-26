@@ -32,9 +32,10 @@
       .hero h1{font-size:30px}
     }
   </style>
+  <link rel="stylesheet" href="ux-v2.css">
 </head>
 <body>
-<main class="wrap">
+<main id="main-content" class="wrap">
   <section class="hero">
     <h1>National Entity Directory</h1>
     <p>دليل وطني منظم يفصل بيانات الجهات عن مراقبة DNS/RDAP، ولا يعتبر أي نطاق مقترح نطاقًا مسجلًا أو رسميًا.</p>
@@ -138,5 +139,6 @@ Promise.all([
 q.addEventListener('input',render);
 select.addEventListener('change',render);
 </script>
+  <script src="ux-v2.js" defer></script>
 </body>
 </html>

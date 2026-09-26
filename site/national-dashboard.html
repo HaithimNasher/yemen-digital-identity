@@ -28,9 +28,10 @@
     @media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:700px){.stats,.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
   </style>
+  <link rel="stylesheet" href="ux-v2.css">
 </head>
 <body>
-<main class="wrap">
+<main id="main-content" class="wrap">
   <section class="hero">
     <h1>National Observatory Dashboard</h1>
     <p>لوحة موحدة تجمع حالة بنية YDII، الدليل الوطني، السياسات، الرصد الحي، والبحث في النطاقات دون خلط بين البيانات الثابتة والنتائج التشغيلية.</p>
@@ -135,5 +136,6 @@ fetch('data/national-dashboard.json')
     ).join('');
   });
 </script>
+  <script src="ux-v2.js" defer></script>
 </body>
 </html>

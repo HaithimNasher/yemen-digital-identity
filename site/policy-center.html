@@ -25,9 +25,10 @@
     .domain{background:#eef7fb}
     @media(max-width:760px){.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
   </style>
+  <link rel="stylesheet" href="ux-v2.css">
 </head>
 <body>
-<main class="wrap">
+<main id="main-content" class="wrap">
   <section class="hero">
     <h1>Policy Center</h1>
     <p>مكتبة حوكمة وسياسات تجريبية لنموذج سجل نطاق وطني احترافي، مع فصل صريح بين التصميم البحثي والسياسة الرسمية.</p>
@@ -92,5 +93,6 @@ fetch('data/policy-catalog.json')
 document.getElementById('q').addEventListener('input',render);
 document.getElementById('domain').addEventListener('change',render);
 </script>
+  <script src="ux-v2.js" defer></script>
 </body>
 </html>

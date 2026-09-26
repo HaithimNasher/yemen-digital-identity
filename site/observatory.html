@@ -27,9 +27,10 @@
     .muted{color:#718093}
     @media(max-width:800px){.grid,.stats{grid-template-columns:1fr}.hero h1{font-size:30px}}
   </style>
+  <link rel="stylesheet" href="ux-v2.css">
 </head>
 <body>
-<main class="wrap">
+<main id="main-content" class="wrap">
   <section class="hero">
     <h1>Live DNS / RDAP / TLS Observatory</h1>
     <p>طبقة رصد فني لحظية تفصل النتائج الشبكية عن بيانات الدليل والسياسات.</p>
@@ -98,5 +99,6 @@ fetch('data/observatory-live.json')
 
 document.getElementById('q').addEventListener('input',render);
 </script>
+  <script src="ux-v2.js" defer></script>
 </body>
 </html>
