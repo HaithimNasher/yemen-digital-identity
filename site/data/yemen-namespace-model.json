@@ -1,0 +1,161 @@
+{
+  "project": "YDII Professional v2",
+  "dataset": "Yemen Namespace Model",
+  "updated": "2026-09-27",
+  "principle": "Separate observed/current namespace categories from policy proposals and research concepts.",
+  "status_definitions": {
+    "CURRENT": "Current namespace/category used in the Yemen domain registration model.",
+    "RESTRICTED": "Current namespace intended for a defined institutional sector.",
+    "PROPOSED": "Policy proposal for study only; not represented as an approved registration zone.",
+    "RESEARCH": "Research track requiring official/technical confirmation before operational use.",
+    "RESERVED": "Names or labels that policy may reserve from ordinary public allocation."
+  },
+  "zones": [
+    {
+      "zone": ".ye",
+      "level": 1,
+      "status": "CURRENT",
+      "purpose_ar": "النطاق الوطني الأعلى لليمن",
+      "purpose_en": "Yemen country-code top-level domain",
+      "audience": "National namespace",
+      "registration_model": "Direct registrations may exist under .ye",
+      "policy_class": "national"
+    },
+    {
+      "zone": "gov.ye",
+      "level": 2,
+      "status": "RESTRICTED",
+      "purpose_ar": "الجهات الحكومية",
+      "purpose_en": "Government entities",
+      "audience": "Government",
+      "registration_model": "Restricted institutional namespace",
+      "policy_class": "government"
+    },
+    {
+      "zone": "edu.ye",
+      "level": 2,
+      "status": "RESTRICTED",
+      "purpose_ar": "الجامعات والمؤسسات التعليمية",
+      "purpose_en": "Universities and education institutions",
+      "audience": "Education",
+      "registration_model": "Restricted institutional namespace",
+      "policy_class": "education"
+    },
+    {
+      "zone": "com.ye",
+      "level": 2,
+      "status": "CURRENT",
+      "purpose_ar": "الشركات والأنشطة التجارية",
+      "purpose_en": "Commercial entities",
+      "audience": "Business",
+      "registration_model": "Commercial namespace",
+      "policy_class": "commercial"
+    },
+    {
+      "zone": "org.ye",
+      "level": 2,
+      "status": "CURRENT",
+      "purpose_ar": "المنظمات والجمعيات والمبادرات",
+      "purpose_en": "Organizations and associations",
+      "audience": "Organizations",
+      "registration_model": "Organization namespace",
+      "policy_class": "organization"
+    },
+    {
+      "zone": "net.ye",
+      "level": 2,
+      "status": "CURRENT",
+      "purpose_ar": "الشبكات ومزودو الخدمات التقنية",
+      "purpose_en": "Networks and technical service providers",
+      "audience": "Network / ICT",
+      "registration_model": "Network namespace",
+      "policy_class": "network"
+    },
+
+    {
+      "zone": "sch.ye",
+      "level": 2,
+      "status": "PROPOSED",
+      "purpose_ar": "المدارس المرخصة",
+      "purpose_en": "Licensed schools",
+      "audience": "Schools",
+      "registration_model": "Proposed restricted namespace",
+      "policy_class": "school",
+      "benchmark_basis": [".sch.sa", ".sch.qa", ".sch.ae"]
+    },
+    {
+      "zone": "med.ye",
+      "level": 2,
+      "status": "PROPOSED",
+      "purpose_ar": "المستشفيات والمنشآت الصحية المرخصة",
+      "purpose_en": "Licensed hospitals and health institutions",
+      "audience": "Healthcare",
+      "registration_model": "Proposed restricted namespace",
+      "policy_class": "medical",
+      "benchmark_basis": [".med.sa", ".med.om"]
+    },
+    {
+      "zone": "name.ye",
+      "level": 2,
+      "status": "PROPOSED",
+      "purpose_ar": "الأفراد والهوية الشخصية",
+      "purpose_en": "Individuals and personal identity",
+      "audience": "Individuals",
+      "registration_model": "Proposed personal namespace",
+      "policy_class": "personal",
+      "benchmark_basis": [".name.qa"]
+    },
+    {
+      "zone": "pro.ye",
+      "level": 2,
+      "status": "PROPOSED",
+      "purpose_ar": "المهنيون والجهات المهنية المرخصة",
+      "purpose_en": "Licensed professionals and professional bodies",
+      "audience": "Professionals",
+      "registration_model": "Proposed restricted namespace",
+      "policy_class": "professional",
+      "benchmark_basis": [".pro.om"]
+    },
+    {
+      "zone": "museum.ye",
+      "level": 2,
+      "status": "PROPOSED",
+      "purpose_ar": "المتاحف والمؤسسات التراثية",
+      "purpose_en": "Museums and heritage institutions",
+      "audience": "Museums / Heritage",
+      "registration_model": "Proposed restricted namespace",
+      "policy_class": "heritage",
+      "benchmark_basis": [".museum.om"]
+    },
+    {
+      "zone": ".اليمن",
+      "level": 1,
+      "status": "RESEARCH",
+      "purpose_ar": "مسار بحث للهوية العربية الوطنية",
+      "purpose_en": "Research track for an Arabic national IDN",
+      "audience": "Arabic national namespace",
+      "registration_model": "Not presented as operational until officially confirmed",
+      "policy_class": "idn"
+    }
+  ],
+  "reserved_name_classes": [
+    {
+      "class": "state-institutions",
+      "status": "RESERVED",
+      "examples": ["president", "cabinet", "parliament"],
+      "reason_ar": "أسماء مؤسسات سيادية أو عامة ينبغي ألا تخصص كأسماء تجارية عادية."
+    },
+    {
+      "class": "registry-infrastructure",
+      "status": "RESERVED",
+      "examples": ["nic", "registry", "rdap", "whois", "dns", "www"],
+      "reason_ar": "أسماء تشغيلية متعلقة بالسجل والبنية التقنية."
+    },
+    {
+      "class": "security-sensitive",
+      "status": "RESERVED",
+      "examples": ["login", "id", "payment", "portal"],
+      "reason_ar": "أسماء حساسة قد تستخدم في خدمات وطنية أو رقمية رسمية."
+    }
+  ]
+}
