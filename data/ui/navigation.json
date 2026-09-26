@@ -2,18 +2,82 @@
   "project": "YDII Professional v2",
   "version": "2.0",
   "default_language": "ar",
-  "languages": ["ar", "en"],
+  "languages": [
+    "ar",
+    "en"
+  ],
   "items": [
-    {"href":"index.html","key":"home","ar":"الرئيسية","en":"Home"},
-    {"href":"domain-search.html","key":"search","ar":"بحث النطاقات","en":"Domain Search"},
-    {"href":"national-dashboard.html","key":"dashboard","ar":"اللوحة الوطنية","en":"National Dashboard"},
-    {"href":"directory.html","key":"directory","ar":"الدليل الوطني","en":"National Directory"},
-    {"href":"observatory.html","key":"observatory","ar":"المرصد التقني","en":"Observatory"},
-    {"href":"policy-center.html","key":"policies","ar":"مركز السياسات","en":"Policy Center"},
-    {"href":"namespace-model.html","key":"namespace","ar":"نموذج النطاقات","en":"Namespace Model"},
-    {"href":"registry-model.html","key":"registry","ar":"نموذج السجل","en":"Registry Model"},
-    {"href":"eligibility.html","key":"eligibility","ar":"الأهلية","en":"Eligibility"},
-    {"href":"gcc-benchmark.html","key":"gcc","ar":"مقارنة الخليج","en":"GCC Benchmark"},
-    {"href":"ministries.html","key":"ministries","ar":"الوزارات","en":"Ministries"}
+    {
+      "href": "index.html",
+      "key": "home",
+      "ar": "الرئيسية",
+      "en": "Home"
+    },
+    {
+      "href": "domain-search.html",
+      "key": "search",
+      "ar": "بحث النطاقات",
+      "en": "Domain Search"
+    },
+    {
+      "href": "national-dashboard.html",
+      "key": "dashboard",
+      "ar": "اللوحة الوطنية",
+      "en": "National Dashboard"
+    },
+    {
+      "href": "directory.html",
+      "key": "directory",
+      "ar": "الدليل الوطني",
+      "en": "National Directory"
+    },
+    {
+      "href": "observatory.html",
+      "key": "observatory",
+      "ar": "المرصد التقني",
+      "en": "Observatory"
+    },
+    {
+      "href": "policy-center.html",
+      "key": "policies",
+      "ar": "مركز السياسات",
+      "en": "Policy Center"
+    },
+    {
+      "href": "namespace-model.html",
+      "key": "namespace",
+      "ar": "نموذج النطاقات",
+      "en": "Namespace Model"
+    },
+    {
+      "href": "registry-model.html",
+      "key": "registry",
+      "ar": "نموذج السجل",
+      "en": "Registry Model"
+    },
+    {
+      "href": "eligibility.html",
+      "key": "eligibility",
+      "ar": "الأهلية",
+      "en": "Eligibility"
+    },
+    {
+      "href": "gcc-benchmark.html",
+      "key": "gcc",
+      "ar": "مقارنة الخليج",
+      "en": "GCC Benchmark"
+    },
+    {
+      "href": "ministries.html",
+      "key": "ministries",
+      "ar": "الوزارات",
+      "en": "Ministries"
+    },
+    {
+      "href": "gcc-parity-audit.html",
+      "key": "parity",
+      "ar": "تدقيق التكافؤ",
+      "en": "Parity Audit"
+    }
   ]
 }

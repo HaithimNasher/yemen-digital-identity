@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GCC Parity Audit | YDII</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="ux-v2.css">
+  <style>
+    .wrap{max-width:1220px;margin:auto;padding:42px 22px 90px}
+    .hero{background:var(--ydii-brand-strong);color:#fff;border-radius:28px;padding:36px}
+    .hero h1{font-size:40px;margin:0 0 10px}
+    .hero p{color:#c8d4e3;max-width:950px}
+    .notice{background:var(--ydii-warning);border-radius:12px;padding:14px;margin:18px 0}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+    .stat{background:var(--ydii-surface);border:1px solid var(--ydii-border);border-radius:18px;padding:18px}
+    .stat b{display:block;font-size:29px}
+    .controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    input,select{padding:12px 14px;border:1px solid var(--ydii-border);border-radius:11px;background:var(--ydii-surface);color:var(--ydii-text)}
+    input{flex:1;min-width:220px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .card{background:var(--ydii-surface);border:1px solid var(--ydii-border);border-radius:18px;padding:19px}
+    .title{font-size:18px;font-weight:800}
+    .en{color:var(--ydii-muted);direction:ltr;text-align:right}
+    .badge{display:inline-block;padding:5px 9px;border-radius:999px;background:color-mix(in srgb,var(--ydii-brand) 12%,transparent);margin:7px 4px 0 0;font-size:11px;font-weight:800}
+    .evidence{margin-top:10px;color:var(--ydii-muted);font-size:13px;overflow-wrap:anywhere}
+    @media(max-width:800px){.stats,.grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:580px){.stats,.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
+  </style>
+</head>
+<body>
+<main id="main-content" class="wrap">
+  <section class="hero">
+    <h1>GCC Parity Audit</h1>
+    <p>تدقيق تغطية فني للتحقق من أن YDII يعالج المحاور المؤسسية المتكررة في نماذج سجلات النطاقات الخليجية، دون ترتيب أو تقييم الدول.</p>
+  </section>
+
+  <div class="notice">
+    COVERED تعني وجود دليل معماري/سياساتي داخل المشروع، ولا تعني الجاهزية التشغيلية أو الصفة الرسمية.
+  </div>
+
+  <section id="stats" class="stats"></section>
+
+  <div class="controls">
+    <input id="q" placeholder="ابحث في متطلبات التدقيق...">
+    <select id="state">
+      <option value="all">كل الحالات</option>
+      <option value="COVERED">COVERED</option>
+      <option value="PARTIAL">PARTIAL</option>
+      <option value="PLANNED">PLANNED</option>
+    </select>
+  </div>
+
+  <section id="grid" class="grid"></section>
+</main>
+
+<script>
+let data;
+
+function render(){
+  const q=document.getElementById('q').value.trim().toLowerCase();
+  const state=document.getElementById('state').value;
+  const rows=(data.requirements||[]).filter(x=>{
+    const hay=[x.id,x.name_ar,x.name_en,x.category,x.state].join(' ').toLowerCase();
+    return (state==='all'||x.state===state) && (!q||hay.includes(q));
+  });
+
+  const s=data.summary||{};
+  document.getElementById('stats').innerHTML=[
+    ['Requirements',s.requirements||0],
+    ['Covered',s.covered||0],
+    ['Partial',s.partial||0],
+    ['Planned',s.planned||0]
+  ].map(x=>`
+    <article class="stat"><span>${x[0]}</span><b>${x[1]}</b></article>
+  `).join('');
+
+  document.getElementById('grid').innerHTML=rows.map(x=>`
+    <article class="card">
+      <div class="title">${x.name_ar}</div>
+      <div class="en">${x.name_en}</div>
+      <span class="badge">${x.state}</span>
+      <span class="badge">${x.category}</span>
+      <div class="evidence">
+        ${x.evidence_found.length ? 'Evidence: '+x.evidence_found.join(' · ') : 'No evidence yet'}
+      </div>
+      ${x.note_ar ? `<p>${x.note_ar}</p>` : ''}
+    </article>
+  `).join('');
+}
+
+fetch('data/gcc-parity-audit.json')
+  .then(r=>r.json())
+  .then(d=>{data=d;render();});
+
+document.getElementById('q').addEventListener('input',render);
+document.getElementById('state').addEventListener('change',render);
+</script>
+<script src="ux-v2.js" defer></script>
+</body>
+</html>

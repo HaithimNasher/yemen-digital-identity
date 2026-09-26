@@ -1,0 +1,193 @@
+{
+  "project": "YDII Professional v2",
+  "dataset": "GCC Parity Audit Requirements",
+  "version": "2.0",
+  "updated": "2026-09-27",
+  "methodology": "Technical and governance coverage audit against patterns documented in the GCC benchmark dataset. This is not a country ranking or score.",
+  "states": ["COVERED", "PARTIAL", "PLANNED", "NOT_APPLICABLE"],
+  "requirements": [
+    {
+      "id": "national-cctld-model",
+      "name_ar": "نموذج النطاق الوطني",
+      "name_en": "National ccTLD model",
+      "evidence": ["data/yemen/namespace-model.json"],
+      "category": "namespace"
+    },
+    {
+      "id": "registry-registrar-separation",
+      "name_ar": "فصل السجل عن المسجل",
+      "name_en": "Registry / Registrar separation",
+      "evidence": ["data/registry/registry-model.json"],
+      "category": "registry"
+    },
+    {
+      "id": "registrar-accreditation",
+      "name_ar": "اعتماد المسجلين",
+      "name_en": "Registrar accreditation",
+      "evidence": [
+        "data/registry/registrar-accreditation.json",
+        "policies/registrar-accreditation.md"
+      ],
+      "category": "registrar"
+    },
+    {
+      "id": "namespace-eligibility",
+      "name_ar": "أهلية مناطق التسجيل",
+      "name_en": "Namespace eligibility",
+      "evidence": [
+        "data/eligibility/rules.json",
+        "scripts/eligibility_engine.py",
+        "policies/eligibility.md"
+      ],
+      "category": "policy"
+    },
+    {
+      "id": "reserved-names",
+      "name_ar": "الأسماء المحجوزة",
+      "name_en": "Reserved names",
+      "evidence": ["policies/reserved-names.md"],
+      "category": "policy"
+    },
+    {
+      "id": "domain-lifecycle",
+      "name_ar": "دورة حياة النطاق",
+      "name_en": "Domain lifecycle",
+      "evidence": [
+        "data/registry/domain-lifecycle.json",
+        "policies/domain-lifecycle.md"
+      ],
+      "category": "registry"
+    },
+    {
+      "id": "renewal-expiry",
+      "name_ar": "التجديد والانتهاء",
+      "name_en": "Renewal / expiry",
+      "evidence": ["policies/renewal-expiry.md"],
+      "category": "policy"
+    },
+    {
+      "id": "domain-transfer",
+      "name_ar": "نقل النطاق",
+      "name_en": "Domain transfer",
+      "evidence": ["policies/transfer.md"],
+      "category": "policy"
+    },
+    {
+      "id": "privacy-rdap",
+      "name_ar": "الخصوصية وRDAP",
+      "name_en": "Privacy / RDAP",
+      "evidence": [
+        "policies/privacy-rdap.md",
+        "scripts/observatory_probe.py"
+      ],
+      "category": "registration-data"
+    },
+    {
+      "id": "whois-transition",
+      "name_ar": "WHOIS والانتقال إلى RDAP",
+      "name_en": "WHOIS / RDAP transition",
+      "evidence": ["policies/whois-transition.md"],
+      "category": "registration-data"
+    },
+    {
+      "id": "dnssec",
+      "name_ar": "DNSSEC",
+      "name_en": "DNSSEC",
+      "evidence": [
+        "policies/dnssec.md",
+        "scripts/observatory_probe.py"
+      ],
+      "category": "security"
+    },
+    {
+      "id": "ipv6-observability",
+      "name_ar": "رصد IPv6",
+      "name_en": "IPv6 observability",
+      "evidence": ["scripts/observatory_probe.py"],
+      "category": "observability"
+    },
+    {
+      "id": "tls-observability",
+      "name_ar": "رصد HTTPS/TLS",
+      "name_en": "HTTPS / TLS observability",
+      "evidence": ["scripts/observatory_probe.py"],
+      "category": "observability"
+    },
+    {
+      "id": "abuse-management",
+      "name_ar": "إدارة إساءة الاستخدام",
+      "name_en": "Abuse management",
+      "evidence": ["policies/abuse.md"],
+      "category": "security"
+    },
+    {
+      "id": "domain-disputes",
+      "name_ar": "نزاعات أسماء النطاق",
+      "name_en": "Domain disputes",
+      "evidence": ["policies/disputes.md"],
+      "category": "governance"
+    },
+    {
+      "id": "domain-search",
+      "name_ar": "بحث النطاقات",
+      "name_en": "Domain search",
+      "evidence": [
+        "scripts/domain_search.py",
+        "site/domain-search.html"
+      ],
+      "category": "public-service"
+    },
+    {
+      "id": "national-directory",
+      "name_ar": "الدليل الوطني",
+      "name_en": "National entity directory",
+      "evidence": [
+        "data/directory/manifest.json",
+        "site/directory.html"
+      ],
+      "category": "public-service"
+    },
+    {
+      "id": "policy-center",
+      "name_ar": "مركز السياسات",
+      "name_en": "Policy center",
+      "evidence": [
+        "data/policies/catalog.json",
+        "site/policy-center.html"
+      ],
+      "category": "governance"
+    },
+    {
+      "id": "arabic-idn-research",
+      "name_ar": "بحث النطاق العربي",
+      "name_en": "Arabic IDN research",
+      "evidence": [
+        "policies/idn.md",
+        "docs/research-idn-ar.md"
+      ],
+      "category": "namespace"
+    },
+    {
+      "id": "bilingual-portal",
+      "name_ar": "بوابة عربية/إنجليزية",
+      "name_en": "Arabic / English portal",
+      "evidence": [
+        "site/ux-v2.js",
+        "site/i18n/ar.json",
+        "site/i18n/en.json"
+      ],
+      "category": "ux"
+    },
+    {
+      "id": "security-ci-gates",
+      "name_ar": "بوابات الأمن وCI",
+      "name_en": "Security and CI gates",
+      "evidence": [
+        ".github/workflows/ci.yml"
+      ],
+      "category": "engineering",
+      "force_state": "PARTIAL",
+      "note_ar": "يوجد CI أساسي، لكن بوابات الأمن والإطلاق الإنتاجية الكاملة ستضاف في Step 13."
+    }
+  ]
+}

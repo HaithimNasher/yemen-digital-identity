@@ -1,0 +1,377 @@
+{
+  "project": "YDII Professional v2",
+  "generated_at": "2026-09-26T23:33:09+00:00",
+  "status": "TECHNICAL_COVERAGE_AUDIT",
+  "methodology": "Technical and governance coverage audit against patterns documented in the GCC benchmark dataset. This is not a country ranking or score.",
+  "gcc_reference_countries": [
+    {
+      "code": "SA",
+      "cctld": ".sa"
+    },
+    {
+      "code": "AE",
+      "cctld": ".ae"
+    },
+    {
+      "code": "QA",
+      "cctld": ".qa"
+    },
+    {
+      "code": "OM",
+      "cctld": ".om"
+    },
+    {
+      "code": "BH",
+      "cctld": ".bh"
+    },
+    {
+      "code": "KW",
+      "cctld": ".kw"
+    }
+  ],
+  "summary": {
+    "requirements": 21,
+    "covered": 20,
+    "partial": 1,
+    "planned": 0,
+    "not_applicable": 0
+  },
+  "categories": {
+    "namespace": {
+      "requirements": 2,
+      "covered": 2,
+      "partial": 0,
+      "planned": 0
+    },
+    "registry": {
+      "requirements": 2,
+      "covered": 2,
+      "partial": 0,
+      "planned": 0
+    },
+    "registrar": {
+      "requirements": 1,
+      "covered": 1,
+      "partial": 0,
+      "planned": 0
+    },
+    "policy": {
+      "requirements": 4,
+      "covered": 4,
+      "partial": 0,
+      "planned": 0
+    },
+    "registration-data": {
+      "requirements": 2,
+      "covered": 2,
+      "partial": 0,
+      "planned": 0
+    },
+    "security": {
+      "requirements": 2,
+      "covered": 2,
+      "partial": 0,
+      "planned": 0
+    },
+    "observability": {
+      "requirements": 2,
+      "covered": 2,
+      "partial": 0,
+      "planned": 0
+    },
+    "governance": {
+      "requirements": 2,
+      "covered": 2,
+      "partial": 0,
+      "planned": 0
+    },
+    "public-service": {
+      "requirements": 2,
+      "covered": 2,
+      "partial": 0,
+      "planned": 0
+    },
+    "ux": {
+      "requirements": 1,
+      "covered": 1,
+      "partial": 0,
+      "planned": 0
+    },
+    "engineering": {
+      "requirements": 1,
+      "covered": 0,
+      "partial": 1,
+      "planned": 0
+    }
+  },
+  "requirements": [
+    {
+      "id": "national-cctld-model",
+      "name_ar": "نموذج النطاق الوطني",
+      "name_en": "National ccTLD model",
+      "category": "namespace",
+      "state": "COVERED",
+      "evidence_found": [
+        "data/yemen/namespace-model.json"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "registry-registrar-separation",
+      "name_ar": "فصل السجل عن المسجل",
+      "name_en": "Registry / Registrar separation",
+      "category": "registry",
+      "state": "COVERED",
+      "evidence_found": [
+        "data/registry/registry-model.json"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "registrar-accreditation",
+      "name_ar": "اعتماد المسجلين",
+      "name_en": "Registrar accreditation",
+      "category": "registrar",
+      "state": "COVERED",
+      "evidence_found": [
+        "data/registry/registrar-accreditation.json",
+        "policies/registrar-accreditation.md"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "namespace-eligibility",
+      "name_ar": "أهلية مناطق التسجيل",
+      "name_en": "Namespace eligibility",
+      "category": "policy",
+      "state": "COVERED",
+      "evidence_found": [
+        "data/eligibility/rules.json",
+        "scripts/eligibility_engine.py",
+        "policies/eligibility.md"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "reserved-names",
+      "name_ar": "الأسماء المحجوزة",
+      "name_en": "Reserved names",
+      "category": "policy",
+      "state": "COVERED",
+      "evidence_found": [
+        "policies/reserved-names.md"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "domain-lifecycle",
+      "name_ar": "دورة حياة النطاق",
+      "name_en": "Domain lifecycle",
+      "category": "registry",
+      "state": "COVERED",
+      "evidence_found": [
+        "data/registry/domain-lifecycle.json",
+        "policies/domain-lifecycle.md"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "renewal-expiry",
+      "name_ar": "التجديد والانتهاء",
+      "name_en": "Renewal / expiry",
+      "category": "policy",
+      "state": "COVERED",
+      "evidence_found": [
+        "policies/renewal-expiry.md"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "domain-transfer",
+      "name_ar": "نقل النطاق",
+      "name_en": "Domain transfer",
+      "category": "policy",
+      "state": "COVERED",
+      "evidence_found": [
+        "policies/transfer.md"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "privacy-rdap",
+      "name_ar": "الخصوصية وRDAP",
+      "name_en": "Privacy / RDAP",
+      "category": "registration-data",
+      "state": "COVERED",
+      "evidence_found": [
+        "policies/privacy-rdap.md",
+        "scripts/observatory_probe.py"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "whois-transition",
+      "name_ar": "WHOIS والانتقال إلى RDAP",
+      "name_en": "WHOIS / RDAP transition",
+      "category": "registration-data",
+      "state": "COVERED",
+      "evidence_found": [
+        "policies/whois-transition.md"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "dnssec",
+      "name_ar": "DNSSEC",
+      "name_en": "DNSSEC",
+      "category": "security",
+      "state": "COVERED",
+      "evidence_found": [
+        "policies/dnssec.md",
+        "scripts/observatory_probe.py"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "ipv6-observability",
+      "name_ar": "رصد IPv6",
+      "name_en": "IPv6 observability",
+      "category": "observability",
+      "state": "COVERED",
+      "evidence_found": [
+        "scripts/observatory_probe.py"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "tls-observability",
+      "name_ar": "رصد HTTPS/TLS",
+      "name_en": "HTTPS / TLS observability",
+      "category": "observability",
+      "state": "COVERED",
+      "evidence_found": [
+        "scripts/observatory_probe.py"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "abuse-management",
+      "name_ar": "إدارة إساءة الاستخدام",
+      "name_en": "Abuse management",
+      "category": "security",
+      "state": "COVERED",
+      "evidence_found": [
+        "policies/abuse.md"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "domain-disputes",
+      "name_ar": "نزاعات أسماء النطاق",
+      "name_en": "Domain disputes",
+      "category": "governance",
+      "state": "COVERED",
+      "evidence_found": [
+        "policies/disputes.md"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "domain-search",
+      "name_ar": "بحث النطاقات",
+      "name_en": "Domain search",
+      "category": "public-service",
+      "state": "COVERED",
+      "evidence_found": [
+        "scripts/domain_search.py",
+        "site/domain-search.html"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "national-directory",
+      "name_ar": "الدليل الوطني",
+      "name_en": "National entity directory",
+      "category": "public-service",
+      "state": "COVERED",
+      "evidence_found": [
+        "data/directory/manifest.json",
+        "site/directory.html"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "policy-center",
+      "name_ar": "مركز السياسات",
+      "name_en": "Policy center",
+      "category": "governance",
+      "state": "COVERED",
+      "evidence_found": [
+        "data/policies/catalog.json",
+        "site/policy-center.html"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "arabic-idn-research",
+      "name_ar": "بحث النطاق العربي",
+      "name_en": "Arabic IDN research",
+      "category": "namespace",
+      "state": "COVERED",
+      "evidence_found": [
+        "policies/idn.md",
+        "docs/research-idn-ar.md"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "bilingual-portal",
+      "name_ar": "بوابة عربية/إنجليزية",
+      "name_en": "Arabic / English portal",
+      "category": "ux",
+      "state": "COVERED",
+      "evidence_found": [
+        "site/ux-v2.js",
+        "site/i18n/ar.json",
+        "site/i18n/en.json"
+      ],
+      "evidence_missing": [],
+      "note_ar": null
+    },
+    {
+      "id": "security-ci-gates",
+      "name_ar": "بوابات الأمن وCI",
+      "name_en": "Security and CI gates",
+      "category": "engineering",
+      "state": "PARTIAL",
+      "evidence_found": [
+        ".github/workflows/ci.yml"
+      ],
+      "evidence_missing": [],
+      "note_ar": "يوجد CI أساسي، لكن بوابات الأمن والإطلاق الإنتاجية الكاملة ستضاف في Step 13."
+    }
+  ],
+  "interpretation_ar": "هذه مصفوفة تغطية فنية لمكونات المشروع، وليست ترتيبًا أو تقييمًا للدول الخليجية، ولا تثبت الجاهزية التشغيلية لسجل وطني.",
+  "next_priority": [
+    "security-ci-gates"
+  ]
+}
