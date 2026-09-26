@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>وزارات اليمن | YDII Domain Manager</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body{background:#eef7fb}
+    .wrap{max-width:850px;margin:auto;padding:26px 18px 100px}
+    .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+    .top h1{font-size:34px;margin:0}
+    .search{width:100%;padding:16px 18px;border:2px solid #7f8b95;border-radius:34px;background:#f7fcff;font-size:18px}
+    .chips{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 24px}
+    .chip{padding:10px 18px;border:1px solid #78858f;border-radius:12px;background:#f5fbfe}
+    .chip.active{background:#cfe8f8;border-color:#cfe8f8}
+    .list{display:grid;gap:16px}
+    .card{background:#dfe9f0;border-radius:28px;padding:20px;display:grid;grid-template-columns:74px 1fr auto;gap:16px;align-items:center}
+    .icon{width:64px;height:64px;border-radius:50%;background:#bfeaff;display:flex;align-items:center;justify-content:center;font-size:34px}
+    .name{font-size:20px;font-weight:700;margin-bottom:4px}
+    .domain{direction:ltr;text-align:right;color:#08728e;font-size:17px}
+    .ip{direction:ltr;text-align:right;color:#4c5963}
+    .menu{font-size:28px}
+    .note{background:#fff6d8;border-right:4px solid #f0b429;padding:12px;border-radius:10px;margin-bottom:18px}
+    @media(max-width:600px){.top h1{font-size:26px}.card{grid-template-columns:58px 1fr auto;padding:16px}.icon{width:52px;height:52px;font-size:28px}.name{font-size:17px}}
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <div class="top">
+    <h1>Domain Manager</h1>
+    <div>⚙️ ⋮</div>
+  </div>
+
+  <input id="q" class="search" placeholder="Search domains...">
+
+  <div class="chips">
+    <button class="chip active">All</button>
+    <button class="chip">Favorites</button>
+    <button class="chip">Pinned</button>
+    <button class="chip">IPv4</button>
+    <button class="chip">IPv6</button>
+  </div>
+
+  <div class="note">هذه الصفحة تعيد بناء الوزارات كما ظهرت في الصور. عناوين IPv4 مرجعية من الصور وليست تحققًا شبكيًا حيًا.</div>
+
+  <section id="list" class="list"></section>
+</main>
+
+<script>
+let ministries=[];
+const q=document.getElementById('q');
+const list=document.getElementById('list');
+
+function render(){
+  const term=q.value.trim().toLowerCase();
+  const rows=ministries.filter(x=>{
+    const t=(x.name_ar+" "+x.name_en+" "+x.current_domain+" "+(x.reference_ipv4||"")).toLowerCase();
+    return !term || t.includes(term);
+  });
+  list.innerHTML=rows.map(x=>`
+    <article class="card">
+      <div class="icon">🌐</div>
+      <div>
+        <div class="name">${x.name_ar}</div>
+        <div class="domain">https://${x.current_domain}</div>
+        <div class="ip">${x.reference_ipv4 || "—"} · ${x.ip_version || "V4"}</div>
+      </div>
+      <div class="menu">⋮</div>
+    </article>
+  `).join('');
+}
+
+fetch('data/entities.json')
+  .then(r=>r.json())
+  .then(d=>{
+    const cat=(d.categories||[]).find(c=>c.category==='ministries');
+    ministries=cat ? cat.entities : [];
+    render();
+  });
+
+q.addEventListener('input',render);
+</script>
+</body>
+</html>
