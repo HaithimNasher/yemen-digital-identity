@@ -1,0 +1,114 @@
+{
+  "project": "YDII Professional v2",
+  "dataset": "Policy Center Catalog",
+  "version": "2.0-draft",
+  "updated": "2026-09-27",
+  "status": "DRAFT_POLICY_LIBRARY",
+  "notice_ar": "هذه مكتبة سياسات تصميمية للمشروع وليست سياسات رسمية أو ملزمة لسجل .ye.",
+  "policies": [
+    {
+      "id": "registration",
+      "title_ar": "سياسة التسجيل",
+      "title_en": "Registration Policy",
+      "file": "policies/registration.md",
+      "status": "DRAFT",
+      "domain": "registry"
+    },
+    {
+      "id": "eligibility",
+      "title_ar": "سياسة الأهلية",
+      "title_en": "Eligibility Policy",
+      "file": "policies/eligibility.md",
+      "status": "DRAFT",
+      "domain": "registry"
+    },
+    {
+      "id": "registrar-accreditation",
+      "title_ar": "اعتماد المسجلين",
+      "title_en": "Registrar Accreditation",
+      "file": "policies/registrar-accreditation.md",
+      "status": "DRAFT",
+      "domain": "registrar"
+    },
+    {
+      "id": "reserved-names",
+      "title_ar": "الأسماء المحجوزة",
+      "title_en": "Reserved Names Policy",
+      "file": "policies/reserved-names.md",
+      "status": "DRAFT",
+      "domain": "namespace"
+    },
+    {
+      "id": "domain-lifecycle",
+      "title_ar": "دورة حياة النطاق",
+      "title_en": "Domain Lifecycle Policy",
+      "file": "policies/domain-lifecycle.md",
+      "status": "DRAFT",
+      "domain": "registry"
+    },
+    {
+      "id": "privacy-rdap",
+      "title_ar": "الخصوصية وRDAP",
+      "title_en": "Privacy & RDAP Policy",
+      "file": "policies/privacy-rdap.md",
+      "status": "DRAFT",
+      "domain": "data"
+    },
+    {
+      "id": "whois-transition",
+      "title_ar": "WHOIS والانتقال إلى RDAP",
+      "title_en": "WHOIS / RDAP Transition",
+      "file": "policies/whois-transition.md",
+      "status": "DRAFT",
+      "domain": "data"
+    },
+    {
+      "id": "abuse",
+      "title_ar": "إساءة الاستخدام",
+      "title_en": "Abuse Management Policy",
+      "file": "policies/abuse.md",
+      "status": "DRAFT",
+      "domain": "security"
+    },
+    {
+      "id": "disputes",
+      "title_ar": "نزاعات أسماء النطاق",
+      "title_en": "Domain Dispute Policy",
+      "file": "policies/disputes.md",
+      "status": "DRAFT",
+      "domain": "governance"
+    },
+    {
+      "id": "transfer",
+      "title_ar": "نقل النطاق",
+      "title_en": "Domain Transfer Policy",
+      "file": "policies/transfer.md",
+      "status": "DRAFT",
+      "domain": "registry"
+    },
+    {
+      "id": "renewal-expiry",
+      "title_ar": "التجديد والانتهاء",
+      "title_en": "Renewal & Expiry Policy",
+      "file": "policies/renewal-expiry.md",
+      "status": "DRAFT",
+      "domain": "registry"
+    },
+    {
+      "id": "dnssec",
+      "title_ar": "سياسة DNSSEC",
+      "title_en": "DNSSEC Policy",
+      "file": "policies/dnssec.md",
+      "status": "DRAFT",
+      "domain": "security"
+    },
+    {
+      "id": "idn",
+      "title_ar": "سياسة IDN العربية",
+      "title_en": "Arabic IDN Policy",
+      "file": "policies/idn.md",
+      "status": "RESEARCH_DRAFT",
+      "domain": "namespace"
+    }
+  ]
+}
