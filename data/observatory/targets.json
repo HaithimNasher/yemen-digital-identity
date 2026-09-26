@@ -1,0 +1,198 @@
+{
+  "generated_from_project_data": true,
+  "notice_ar": "الأهداف تشمل النطاقات الحالية/المرجعية فقط. النطاقات الجامعية المقترحة PROPOSED لا تدخل الفحص الحي تلقائياً.",
+  "targets": [
+    {
+      "domain": "ye",
+      "kind": "namespace",
+      "label_ar": "النطاق الوطني الأعلى .ye",
+      "source": "YDII namespace model"
+    },
+    {
+      "domain": "gov.ye",
+      "kind": "namespace",
+      "label_ar": "الحكومة",
+      "source": "YDII namespace model"
+    },
+    {
+      "domain": "edu.ye",
+      "kind": "namespace",
+      "label_ar": "التعليم",
+      "source": "YDII namespace model"
+    },
+    {
+      "domain": "com.ye",
+      "kind": "namespace",
+      "label_ar": "التجارة",
+      "source": "YDII namespace model"
+    },
+    {
+      "domain": "org.ye",
+      "kind": "namespace",
+      "label_ar": "المنظمات",
+      "source": "YDII namespace model"
+    },
+    {
+      "domain": "net.ye",
+      "kind": "namespace",
+      "label_ar": "الشبكات",
+      "source": "YDII namespace model"
+    },
+    {
+      "domain": "moi.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الداخلية اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "mod.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الدفاع اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "mofa.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الخارجية وشؤون المغتربين",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "mof.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة المالية اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "moe.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة التربية والتعليم اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "mohesr.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة التعليم العالي والبحث العلمي",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "moh.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الصحة العامة والسكان اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "mocit.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الاتصالات وتقنية المعلومات",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "mot.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة النقل اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "moa.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الزراعة والري والثروة السمكية",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "moj.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة العدل اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "mopic.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة التخطيط والتعاون الدولي",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "molsa.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الشؤون الاجتماعية والعمل",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "mcs.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الخدمة المدنية والتأمينات",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "mct.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الثقافة والسياحة اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "moys.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الشباب والرياضة اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "mewa.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الكهرباء والطاقة اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "mopwh.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الأشغال العامة والطرق اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "mocal.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الإدارة المحلية اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "menv.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة المياه والبيئة اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "moiaw.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الأوقاف والإرشاد اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "moiat.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الصناعة والتجارة اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "moil.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة النفط والمعادن اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "mhr.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة حقوق الإنسان اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "mleg.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الشؤون القانونية اليمن",
+      "source": "YDII ministries dataset"
+    },
+    {
+      "domain": "minfo.gov.ye",
+      "kind": "ministry",
+      "label_ar": "وزارة الإعلام اليمن",
+      "source": "YDII ministries dataset"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Live Observatory | YDII</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body{background:#f4f8fb;color:#17212b}
+    .wrap{max-width:1220px;margin:auto;padding:42px 22px 90px}
+    .hero{background:#071426;color:white;border-radius:26px;padding:34px}
+    .hero h1{font-size:38px;margin:0 0 10px}
+    .hero p{color:#c7d3e3;max-width:920px}
+    .notice{background:#fff5cf;border-right:4px solid #d69d12;border-radius:12px;padding:14px;margin:18px 0}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+    .stat{background:white;border:1px solid #dce5ed;border-radius:17px;padding:17px}
+    .stat b{font-size:27px;display:block}
+    .controls{display:flex;gap:10px;margin-bottom:18px}
+    input{width:100%;padding:13px 15px;border:1px solid #cbd5df;border-radius:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+    .card{background:white;border:1px solid #dce5ed;border-radius:18px;padding:20px}
+    .domain{direction:ltr;text-align:right;font-size:22px;font-weight:800;color:#08728e}
+    .name{font-weight:700}
+    .row{display:flex;justify-content:space-between;gap:10px;border-top:1px solid #edf1f5;padding:7px 0}
+    .value{direction:ltr;text-align:left;overflow-wrap:anywhere}
+    .ok{font-weight:700}
+    .muted{color:#718093}
+    @media(max-width:800px){.grid,.stats{grid-template-columns:1fr}.hero h1{font-size:30px}}
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <h1>Live DNS / RDAP / TLS Observatory</h1>
+    <p>طبقة رصد فني لحظية تفصل النتائج الشبكية عن بيانات الدليل والسياسات.</p>
+  </section>
+
+  <div class="notice">
+    نتائج الرصد لا تثبت الملكية أو أهلية التسجيل. NOT_FOUND_IN_RDAP لا يعني AVAILABLE، وDNSSEC هنا DS/RRSIG evidence فقط.
+  </div>
+
+  <section id="stats" class="stats"></section>
+
+  <div class="controls">
+    <input id="q" placeholder="ابحث عن نطاق أو جهة...">
+  </div>
+
+  <section id="grid" class="grid"></section>
+</main>
+
+<script>
+let data={results:[],summary:{}};
+
+function render(){
+  const q=document.getElementById('q').value.trim().toLowerCase();
+  const rows=(data.results||[]).filter(x=>
+    !q || [x.domain,x.label_ar,x.kind].filter(Boolean).join(' ').toLowerCase().includes(q)
+  );
+
+  const s=data.summary||{};
+  const stats=[
+    ['Checked',s.targets_checked||0],
+    ['IPv4',s.dns_ipv4_present||0],
+    ['IPv6',s.dns_ipv6_present||0],
+    ['TLS Valid',s.tls_valid||0],
+    ['HTTPS',s.https_responded||0],
+    ['RDAP Found',s.rdap_found||0]
+  ];
+  document.getElementById('stats').innerHTML=stats.map(x=>
+    `<article class="stat"><span>${x[0]}</span><b>${x[1]}</b></article>`
+  ).join('');
+
+  if(!rows.length){
+    document.getElementById('grid').innerHTML=
+      '<article class="card muted">لا توجد نتائج فحص حي حتى الآن.</article>';
+    return;
+  }
+
+  document.getElementById('grid').innerHTML=rows.map(x=>`
+    <article class="card">
+      <div class="name">${x.label_ar||''}</div>
+      <div class="domain">${x.domain}</div>
+      <div class="row"><span>IPv4</span><span class="value">${(x.dns.a||[]).join(', ')||'—'}</span></div>
+      <div class="row"><span>IPv6</span><span class="value">${(x.dns.aaaa||[]).join(', ')||'—'}</span></div>
+      <div class="row"><span>DNSSEC evidence</span><span class="value">${x.dns.dnssec_evidence||'—'}</span></div>
+      <div class="row"><span>HTTPS</span><span class="value">${x.http.status ?? '—'}</span></div>
+      <div class="row"><span>TLS</span><span class="value">${x.tls.certificate_valid?'VALID':'—'} ${x.tls.protocol||''}</span></div>
+      <div class="row"><span>RDAP</span><span class="value">${x.rdap.status||'—'}</span></div>
+      <div class="row"><span>Checked</span><span class="value">${x.checked_at||'—'}</span></div>
+    </article>
+  `).join('');
+}
+
+fetch('data/observatory-live.json')
+  .then(r=>r.json())
+  .then(d=>{data=d;render();})
+  .catch(()=>render());
+
+document.getElementById('q').addEventListener('input',render);
+</script>
+</body>
+</html>
