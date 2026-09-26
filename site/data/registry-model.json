@@ -1,0 +1,119 @@
+{
+  "project": "YDII Professional v2",
+  "dataset": "Registry Registrar Architecture",
+  "version": "2.0-draft",
+  "updated": "2026-09-27",
+  "status": "DRAFT_ARCHITECTURE",
+  "notice_ar": "هذا نموذج معماري وسياساتي للمشروع وليس إعلانًا عن سجل وطني تشغيلي أو جهة تسجيل رسمية.",
+  "principles": [
+    "Separate registry operator functions from registrar customer-facing functions",
+    "Use explicit role-based access control",
+    "Treat namespace policy as separate from live registry state",
+    "Maintain complete auditability for every domain lifecycle transition",
+    "Support RDAP-first public registration data architecture",
+    "Design DNSSEC and secure provisioning as first-class capabilities",
+    "Do not infer domain ownership from screenshots or static directory data"
+  ],
+  "actors": [
+    {
+      "id": "registry",
+      "name_en": "Registry Operator",
+      "name_ar": "مشغّل السجل",
+      "responsibilities": [
+        "authoritative registry database",
+        "zone publication",
+        "registrar provisioning interface",
+        "domain lifecycle enforcement",
+        "reserved names enforcement",
+        "DNSSEC support",
+        "RDAP service",
+        "audit and compliance"
+      ]
+    },
+    {
+      "id": "registrar",
+      "name_en": "Accredited Registrar",
+      "name_ar": "المسجل المعتمد",
+      "responsibilities": [
+        "registrant onboarding",
+        "eligibility evidence collection",
+        "registration requests",
+        "renewals",
+        "transfers",
+        "contact maintenance",
+        "customer support",
+        "abuse escalation"
+      ]
+    },
+    {
+      "id": "registrant",
+      "name_en": "Registrant",
+      "name_ar": "صاحب اسم النطاق",
+      "responsibilities": [
+        "provide accurate registration data",
+        "maintain eligibility",
+        "maintain authoritative nameservers",
+        "comply with namespace policies",
+        "renew domain registrations"
+      ]
+    },
+    {
+      "id": "policy-authority",
+      "name_en": "Policy Authority",
+      "name_ar": "جهة السياسات",
+      "responsibilities": [
+        "namespace policy",
+        "reserved names policy",
+        "eligibility policy",
+        "registrar accreditation policy",
+        "dispute and abuse framework"
+      ]
+    },
+    {
+      "id": "rdap-client",
+      "name_en": "Public RDAP Client",
+      "name_ar": "مستهلك بيانات RDAP",
+      "responsibilities": [
+        "query public registration data subject to policy and privacy controls"
+      ]
+    }
+  ],
+  "registry_services": [
+    "Registry database",
+    "Provisioning API",
+    "Registrar authentication",
+    "Zone generation",
+    "DNSSEC management",
+    "RDAP",
+    "Reserved names engine",
+    "Eligibility policy integration",
+    "Lifecycle engine",
+    "Audit log",
+    "Abuse workflow",
+    "Reporting and observability"
+  ],
+  "registrar_services": [
+    "Domain search",
+    "Customer onboarding",
+    "Eligibility submission",
+    "Create domain",
+    "Renew domain",
+    "Transfer domain",
+    "Update nameservers",
+    "Update contacts",
+    "DNSSEC DS submission",
+    "Support and abuse intake"
+  ],
+  "security_controls": [
+    "MFA for privileged users",
+    "mutual TLS or equivalent strong registrar authentication",
+    "short-lived API credentials",
+    "least-privilege RBAC",
+    "tamper-evident audit logs",
+    "rate limiting",
+    "change approval for critical registry actions",
+    "encrypted backups",
+    "separation of duties",
+    "incident response logging"
+  ]
+}

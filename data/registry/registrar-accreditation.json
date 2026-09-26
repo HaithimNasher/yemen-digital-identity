@@ -1,0 +1,65 @@
+{
+  "project": "YDII Professional v2",
+  "dataset": "Registrar Accreditation Model",
+  "status": "DRAFT_POLICY_MODEL",
+  "requirements": [
+    {
+      "id": "legal-entity",
+      "category": "governance",
+      "requirement_ar": "كيان قانوني موثق وفق متطلبات السياسة المعتمدة."
+    },
+    {
+      "id": "security-contact",
+      "category": "security",
+      "requirement_ar": "نقطة اتصال أمنية وإجرائية تعمل وفق اتفاقية مستوى خدمة محددة."
+    },
+    {
+      "id": "technical-integration",
+      "category": "technical",
+      "requirement_ar": "اجتياز اختبارات التكامل مع واجهة السجل في بيئة اختبار."
+    },
+    {
+      "id": "mfa",
+      "category": "security",
+      "requirement_ar": "فرض MFA على الحسابات الإدارية والحساسة."
+    },
+    {
+      "id": "credential-protection",
+      "category": "security",
+      "requirement_ar": "حماية مفاتيح وشهادات اعتماد السجل وعدم مشاركتها."
+    },
+    {
+      "id": "privacy",
+      "category": "compliance",
+      "requirement_ar": "التعامل مع بيانات المسجلين وفق سياسة الخصوصية والوصول إلى RDAP."
+    },
+    {
+      "id": "abuse-contact",
+      "category": "compliance",
+      "requirement_ar": "قناة واضحة لاستقبال بلاغات إساءة الاستخدام ومعالجتها."
+    },
+    {
+      "id": "audit",
+      "category": "compliance",
+      "requirement_ar": "الاحتفاظ بسجلات تدقيق لعمليات التسجيل والتحديث والنقل."
+    }
+  ],
+  "accreditation_stages": [
+    "application",
+    "document_review",
+    "security_review",
+    "technical_conformance",
+    "sandbox_certification",
+    "agreement",
+    "production_activation",
+    "continuous_compliance"
+  ],
+  "registrar_statuses": [
+    "APPLICANT",
+    "UNDER_REVIEW",
+    "SANDBOX",
+    "ACCREDITED",
+    "SUSPENDED",
+    "TERMINATED"
+  ]
+}
