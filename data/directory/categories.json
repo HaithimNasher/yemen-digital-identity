@@ -1,0 +1,16 @@
+{
+  "project": "YDII Professional v2",
+  "dataset": "National Entity Directory Categories",
+  "updated": "2026-09-27",
+  "categories": [
+    {"id":"ministries","name_ar":"الوزارات","name_en":"Ministries","status":"ACTIVE"},
+    {"id":"universities","name_ar":"الجامعات","name_en":"Universities","status":"ACTIVE"},
+    {"id":"authorities","name_ar":"الهيئات والمؤسسات العامة","name_en":"Authorities & Public Institutions","status":"PLANNED"},
+    {"id":"schools","name_ar":"المدارس","name_en":"Schools","status":"PLANNED"},
+    {"id":"companies","name_ar":"الشركات","name_en":"Companies","status":"PLANNED"},
+    {"id":"banks","name_ar":"البنوك والمؤسسات المالية","name_en":"Banks & Financial Institutions","status":"PLANNED"},
+    {"id":"telecom","name_ar":"الاتصالات ومزودو الإنترنت","name_en":"Telecom & Internet Providers","status":"PLANNED"},
+    {"id":"healthcare","name_ar":"القطاع الصحي","name_en":"Healthcare","status":"PLANNED"},
+    {"id":"organizations","name_ar":"المنظمات والجمعيات","name_en":"Organizations & Associations","status":"PLANNED"}
+  ]
+}

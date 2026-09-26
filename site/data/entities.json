@@ -297,6 +297,225 @@
           "verification_status": "screenshot-reference"
         }
       ]
+    },
+    {
+      "category": "universities",
+      "name_ar": "الجامعات الحكومية",
+      "name_en": "Public Universities",
+      "source_type": "user-provided",
+      "notice_ar": "قائمة الجامعات والمواقع أُدخلت بناءً على البيانات التي قدمها صاحب المشروع. أسماء النطاقات المقترحة أدناه هي مقترحات تصميمية فقط وليست إثباتًا على التسجيل أو الملكية أو الصفة الرسمية.",
+      "entities": [
+        {
+          "id": "sanaa-university",
+          "name_ar": "جامعة صنعاء",
+          "name_en": "Sana'a University",
+          "governorate": "صنعاء",
+          "city": "صنعاء",
+          "suggested_ye_domain": "sanaa.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "aden-university",
+          "name_ar": "جامعة عدن",
+          "name_en": "University of Aden",
+          "governorate": "عدن",
+          "city": "عدن",
+          "suggested_ye_domain": "aden.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "taiz-university",
+          "name_ar": "جامعة تعز",
+          "name_en": "Taiz University",
+          "governorate": "تعز",
+          "city": "تعز",
+          "suggested_ye_domain": "taiz.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "hadramout-university",
+          "name_ar": "جامعة حضرموت",
+          "name_en": "Hadramout University",
+          "governorate": "حضرموت",
+          "city": "المكلا",
+          "suggested_ye_domain": "hadramout.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "dhamar-university",
+          "name_ar": "جامعة ذمار",
+          "name_en": "Dhamar University",
+          "governorate": "ذمار",
+          "city": "ذمار",
+          "suggested_ye_domain": "dhamar.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "ibb-university",
+          "name_ar": "جامعة إب",
+          "name_en": "Ibb University",
+          "governorate": "إب",
+          "city": "إب",
+          "suggested_ye_domain": "ibb.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "hodeidah-university",
+          "name_ar": "جامعة الحديدة",
+          "name_en": "Hodeidah University",
+          "governorate": "الحديدة",
+          "city": "الحديدة",
+          "suggested_ye_domain": "hodeidah.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "amran-university",
+          "name_ar": "جامعة عمران",
+          "name_en": "Amran University",
+          "governorate": "عمران",
+          "city": "عمران",
+          "suggested_ye_domain": "amran.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "hajjah-university",
+          "name_ar": "جامعة حجة",
+          "name_en": "Hajjah University",
+          "governorate": "حجة",
+          "city": "حجة",
+          "suggested_ye_domain": "hajjah.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "albayda-university",
+          "name_ar": "جامعة البيضاء",
+          "name_en": "Al-Bayda University",
+          "governorate": "البيضاء",
+          "city": "البيضاء",
+          "suggested_ye_domain": "albayda.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "saada-university",
+          "name_ar": "جامعة صعدة",
+          "name_en": "Saada University",
+          "governorate": "صعدة",
+          "city": "صعدة",
+          "suggested_ye_domain": "saada.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "lahj-university",
+          "name_ar": "جامعة لحج",
+          "name_en": "Lahj University",
+          "governorate": "لحج",
+          "city": "لحج",
+          "suggested_ye_domain": "lahj.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "abyan-university",
+          "name_ar": "جامعة أبين",
+          "name_en": "Abyan University",
+          "governorate": "أبين",
+          "city": "أبين",
+          "suggested_ye_domain": "abyan.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "aldhalea-university",
+          "name_ar": "جامعة الضالع",
+          "name_en": "Al-Dhalea University",
+          "governorate": "الضالع",
+          "city": "الضالع",
+          "suggested_ye_domain": "aldhalea.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "21-september-university",
+          "name_ar": "جامعة 21 سبتمبر للعلوم الطبية والتطبيقية",
+          "name_en": "21 September University for Medical and Applied Sciences",
+          "governorate": "صنعاء",
+          "city": "صنعاء",
+          "suggested_ye_domain": "21sep.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "jiblah-university",
+          "name_ar": "جامعة جبلة للعلوم الطبية والصحية",
+          "name_en": "Jiblah University for Medical and Health Sciences",
+          "governorate": "إب",
+          "city": "جبلة",
+          "suggested_ye_domain": "jiblah.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "almahwit-university",
+          "name_ar": "جامعة المحويت",
+          "name_en": "Al-Mahwit University",
+          "governorate": "المحويت",
+          "city": "المحويت",
+          "suggested_ye_domain": "almahwit.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "saba-region-university",
+          "name_ar": "جامعة إقليم سبأ",
+          "name_en": "Saba Region University",
+          "governorate": "مأرب",
+          "city": "مأرب",
+          "suggested_ye_domain": "saba-region.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "seiyun-university",
+          "name_ar": "جامعة سيئون",
+          "name_en": "Seiyun University",
+          "governorate": "حضرموت",
+          "city": "سيئون",
+          "suggested_ye_domain": "seiyun.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "shabwa-university",
+          "name_ar": "جامعة شبوة",
+          "name_en": "Shabwa University",
+          "governorate": "شبوة",
+          "city": "شبوة",
+          "suggested_ye_domain": "shabwa.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        },
+        {
+          "id": "almahrah-university",
+          "name_ar": "جامعة المهرة",
+          "name_en": "Al-Mahrah University",
+          "governorate": "المهرة",
+          "city": "المهرة",
+          "suggested_ye_domain": "almahrah.edu.ye",
+          "domain_status": "PROPOSED",
+          "verification_status": "user-provided"
+        }
+      ]
     }
   ]
 }
