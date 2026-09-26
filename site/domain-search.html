@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Domain Search | YDII</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body{background:#f4f8fb;color:#17212b}
+    .wrap{max-width:1150px;margin:auto;padding:42px 22px 90px}
+    .hero{background:#071426;color:white;border-radius:26px;padding:34px}
+    .hero h1{font-size:38px;margin:0 0 10px}
+    .hero p{color:#c7d3e3;max-width:900px}
+    .search{display:flex;gap:10px;margin:20px 0}
+    .search input{flex:1;padding:14px 16px;border:1px solid #cbd5df;border-radius:12px;font-size:17px}
+    .search button{padding:14px 22px;border:0;border-radius:12px;background:#0b7285;color:white;font-weight:700}
+    .notice{background:#fff5cf;border-right:4px solid #d69d12;border-radius:12px;padding:14px;margin-bottom:18px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .card{background:white;border:1px solid #dce5ed;border-radius:18px;padding:19px}
+    .domain{direction:ltr;text-align:right;font-size:21px;font-weight:800;color:#08728e}
+    .state{display:inline-block;border-radius:999px;background:#edf3f8;padding:5px 9px;margin-top:8px;font-size:12px;font-weight:700}
+    .reason{color:#66758a;margin-top:10px}
+    .mode{font-size:12px;color:#7a8798}
+    @media(max-width:760px){.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <h1>Domain Search</h1>
+    <p>بحث سياساتي عبر مناطق .ye مع فصل الحالات المحجوزة والمقيدة والمقترحة عن نتائج RDAP.</p>
+  </section>
+
+  <div class="search">
+    <input id="q" placeholder="مثال: yemenai">
+    <button id="go">Search</button>
+  </div>
+
+  <div class="notice">
+    هذه الصفحة تعرض محاكاة Policy-only داخل المتصفح. البحث الحي RDAP يتم عبر محرك CLI/الخدمة الخلفية. NOT_FOUND_IN_RDAP لا يعني AVAILABLE.
+  </div>
+
+  <section id="grid" class="grid"></section>
+</main>
+
+<script>
+const zones=[
+  {zone:'.ye',status:'CURRENT'},
+  {zone:'com.ye',status:'CURRENT'},
+  {zone:'org.ye',status:'CURRENT'},
+  {zone:'net.ye',status:'CURRENT'},
+  {zone:'gov.ye',status:'RESTRICTED'},
+  {zone:'edu.ye',status:'RESTRICTED'},
+  {zone:'sch.ye',status:'PROPOSED'},
+  {zone:'med.ye',status:'PROPOSED'},
+  {zone:'name.ye',status:'PROPOSED'},
+  {zone:'pro.ye',status:'PROPOSED'},
+  {zone:'museum.ye',status:'PROPOSED'}
+];
+
+const reserved=new Set([
+  'president','cabinet','parliament',
+  'nic','registry','rdap','whois','dns','www',
+  'login','id','payment','portal'
+]);
+
+function fqdn(label,zone){
+  return zone==='.ye' ? `${label}.ye` : `${label}.${zone}`;
+}
+
+function render(){
+  const label=document.getElementById('q').value.trim().toLowerCase();
+  if(!label){
+    document.getElementById('grid').innerHTML='';
+    return;
+  }
+
+  document.getElementById('grid').innerHTML=zones.map(z=>{
+    let state='POLICY_ONLY';
+    let reason='يتطلب فحص RDAP حي من الخدمة الخلفية.';
+    if(reserved.has(label)){
+      state='RESERVED';
+      reason='الاسم ضمن فئات الأسماء المحجوزة في نموذج YDII.';
+    } else if(z.status==='PROPOSED'){
+      state='PROPOSED_ZONE';
+      reason='المنطقة مقترحة بحثيًا وليست تشغيلية.';
+    } else if(z.status==='RESTRICTED'){
+      state='RESTRICTED';
+      reason='المنطقة مقيدة وتتطلب تحقق الأهلية.';
+    }
+
+    return `
+      <article class="card">
+        <div class="domain">${fqdn(label,z.zone)}</div>
+        <span class="state">${state}</span>
+        <div class="reason">${reason}</div>
+        <div class="mode">${z.status}</div>
+      </article>
+    `;
+  }).join('');
+}
+
+document.getElementById('go').addEventListener('click',render);
+document.getElementById('q').addEventListener('keydown',e=>{
+  if(e.key==='Enter') render();
+});
+</script>
+</body>
+</html>
