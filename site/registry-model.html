@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Registry / Registrar Architecture | YDII</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body{background:#f5f8fc;color:#18202b}
+    .wrap{max-width:1180px;margin:auto;padding:42px 22px 90px}
+    .hero{background:#091225;color:#fff;border-radius:26px;padding:34px;margin-bottom:22px}
+    .hero h1{font-size:38px;margin:0 0 10px}
+    .hero p{color:#c6d1e5;max-width:920px}
+    .notice{background:#fff5cf;border-right:4px solid #d69d12;border-radius:12px;padding:14px;margin-bottom:22px}
+    .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+    .node{background:white;border:1px solid #dfe5ee;border-radius:18px;padding:20px;text-align:center}
+    .node b{display:block;font-size:18px;margin-bottom:6px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .card{background:white;border:1px solid #dfe5ee;border-radius:18px;padding:20px}
+    .card h2{margin-top:0}
+    .pill{display:inline-block;background:#edf3f8;border-radius:999px;padding:5px 9px;margin:3px;font-size:12px}
+    .states{direction:ltr;text-align:left;line-height:2}
+    @media(max-width:800px){.flow,.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
+  </style>
+  <link rel="stylesheet" href="ux-v2.css">
+</head>
+<body>
+<main id="main-content" class="wrap">
+  <section class="hero">
+    <h1>Registry / Registrar Architecture</h1>
+    <p>النموذج المؤسسي المقترح لفصل مهام السجل عن المسجل وصاحب النطاق، مع دورة حياة وتدقيق وأمن وRDAP وDNSSEC.</p>
+  </section>
+
+  <div class="notice">
+    هذه بنية تصميمية DRAFT ولا تعني أن YDII سجل رسمي أو جهة تسجيل تشغيلية.
+  </div>
+
+  <section class="flow">
+    <div class="node"><b>Registrant</b><span>صاحب النطاق</span></div>
+    <div class="node"><b>Registrar</b><span>المسجل المعتمد</span></div>
+    <div class="node"><b>Registry Core</b><span>نواة السجل</span></div>
+    <div class="node"><b>DNS / RDAP</b><span>النشر والاستعلام</span></div>
+  </section>
+
+  <section class="grid">
+    <article class="card">
+      <h2>Registry Services</h2>
+      <div id="registry"></div>
+    </article>
+
+    <article class="card">
+      <h2>Registrar Services</h2>
+      <div id="registrar"></div>
+    </article>
+
+    <article class="card">
+      <h2>Security Controls</h2>
+      <div id="security"></div>
+    </article>
+
+    <article class="card">
+      <h2>Lifecycle</h2>
+      <div id="lifecycle" class="states"></div>
+    </article>
+  </section>
+</main>
+
+<script>
+Promise.all([
+  fetch('data/registry-model.json').then(r=>r.json()),
+  fetch('data/domain-lifecycle.json').then(r=>r.json())
+]).then(([model,life])=>{
+  const pills=a=>a.map(x=>`<span class="pill">${x}</span>`).join('');
+  document.getElementById('registry').innerHTML=pills(model.registry_services);
+  document.getElementById('registrar').innerHTML=pills(model.registrar_services);
+  document.getElementById('security').innerHTML=pills(model.security_controls);
+  document.getElementById('lifecycle').innerHTML=
+    life.states.map(x=>`<div><b>${x.id}</b> — ${x.description_ar}</div>`).join('');
+});
+</script>
+  <script src="ux-v2.js" defer></script>
+</body>
+</html>

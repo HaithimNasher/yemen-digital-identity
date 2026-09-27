@@ -1,0 +1,150 @@
+{
+  "project": "YDII Professional v2",
+  "dataset": "Eligibility Rules",
+  "version": "2.0-draft",
+  "updated": "2026-09-27",
+  "status": "DRAFT_POLICY_ENGINE",
+  "notice_ar": "هذه قواعد تصميمية للاختبار وليست قواعد تسجيل رسمية أو قرار أهلية قانوني.",
+  "decision_states": [
+    "ELIGIBLE",
+    "NOT_ELIGIBLE",
+    "REVIEW_REQUIRED",
+    "PROPOSED_ZONE",
+    "UNKNOWN_ZONE"
+  ],
+  "applicant_types": [
+    "government",
+    "university",
+    "education_institution",
+    "school",
+    "company",
+    "organization",
+    "network_provider",
+    "healthcare_provider",
+    "professional",
+    "individual",
+    "other"
+  ],
+  "zones": [
+    {
+      "zone": ".ye",
+      "namespace_status": "CURRENT",
+      "rule_type": "manual-review",
+      "allowed_applicant_types": [],
+      "required_evidence": [],
+      "decision_if_matched": "REVIEW_REQUIRED",
+      "decision_if_not_matched": "REVIEW_REQUIRED",
+      "reason_ar": "التسجيل المباشر تحت .ye يحتاج سياسة تشغيلية رسمية مفصلة؛ لذلك يبقى القرار في هذه النسخة REVIEW_REQUIRED."
+    },
+    {
+      "zone": "gov.ye",
+      "namespace_status": "RESTRICTED",
+      "rule_type": "restricted",
+      "allowed_applicant_types": ["government"],
+      "required_evidence": ["institution_authorization", "authorized_contact"],
+      "decision_if_matched": "ELIGIBLE",
+      "decision_if_not_matched": "NOT_ELIGIBLE",
+      "reason_ar": "مخصص في نموذج YDII للجهات الحكومية المؤهلة بعد التحقق من التفويض."
+    },
+    {
+      "zone": "edu.ye",
+      "namespace_status": "RESTRICTED",
+      "rule_type": "restricted",
+      "allowed_applicant_types": ["university", "education_institution"],
+      "required_evidence": ["education_license_or_authorization", "authorized_contact"],
+      "decision_if_matched": "ELIGIBLE",
+      "decision_if_not_matched": "NOT_ELIGIBLE",
+      "reason_ar": "مخصص للمؤسسات التعليمية المؤهلة بعد التحقق."
+    },
+    {
+      "zone": "com.ye",
+      "namespace_status": "CURRENT",
+      "rule_type": "sector-review",
+      "allowed_applicant_types": ["company"],
+      "required_evidence": ["commercial_identity", "authorized_contact"],
+      "decision_if_matched": "REVIEW_REQUIRED",
+      "decision_if_not_matched": "NOT_ELIGIBLE",
+      "reason_ar": "الكيانات التجارية تنتقل إلى مراجعة المستندات؛ لا يمنح المحرك موافقة نهائية."
+    },
+    {
+      "zone": "org.ye",
+      "namespace_status": "CURRENT",
+      "rule_type": "sector-review",
+      "allowed_applicant_types": ["organization"],
+      "required_evidence": ["organization_identity", "authorized_contact"],
+      "decision_if_matched": "REVIEW_REQUIRED",
+      "decision_if_not_matched": "NOT_ELIGIBLE",
+      "reason_ar": "المنظمات تنتقل إلى مراجعة إثبات الصفة المؤسسية."
+    },
+    {
+      "zone": "net.ye",
+      "namespace_status": "CURRENT",
+      "rule_type": "sector-review",
+      "allowed_applicant_types": ["network_provider"],
+      "required_evidence": ["network_or_telecom_authorization", "authorized_contact"],
+      "decision_if_matched": "REVIEW_REQUIRED",
+      "decision_if_not_matched": "NOT_ELIGIBLE",
+      "reason_ar": "مزودو الشبكات والخدمات التقنية يحتاجون مراجعة إثبات القطاع."
+    },
+    {
+      "zone": "sch.ye",
+      "namespace_status": "PROPOSED",
+      "rule_type": "proposal-only",
+      "allowed_applicant_types": ["school"],
+      "required_evidence": ["school_license", "authorized_contact"],
+      "decision_if_matched": "PROPOSED_ZONE",
+      "decision_if_not_matched": "PROPOSED_ZONE",
+      "reason_ar": "sch.ye مقترح بحثي في YDII وليس منطقة تسجيل تشغيلية."
+    },
+    {
+      "zone": "med.ye",
+      "namespace_status": "PROPOSED",
+      "rule_type": "proposal-only",
+      "allowed_applicant_types": ["healthcare_provider"],
+      "required_evidence": ["healthcare_license", "authorized_contact"],
+      "decision_if_matched": "PROPOSED_ZONE",
+      "decision_if_not_matched": "PROPOSED_ZONE",
+      "reason_ar": "med.ye مقترح بحثي في YDII وليس منطقة تسجيل تشغيلية."
+    },
+    {
+      "zone": "name.ye",
+      "namespace_status": "PROPOSED",
+      "rule_type": "proposal-only",
+      "allowed_applicant_types": ["individual"],
+      "required_evidence": ["identity_document"],
+      "decision_if_matched": "PROPOSED_ZONE",
+      "decision_if_not_matched": "PROPOSED_ZONE",
+      "reason_ar": "name.ye مقترح بحثي للأفراد."
+    },
+    {
+      "zone": "pro.ye",
+      "namespace_status": "PROPOSED",
+      "rule_type": "proposal-only",
+      "allowed_applicant_types": ["professional"],
+      "required_evidence": ["professional_license", "identity_document"],
+      "decision_if_matched": "PROPOSED_ZONE",
+      "decision_if_not_matched": "PROPOSED_ZONE",
+      "reason_ar": "pro.ye مقترح بحثي للمهنيين."
+    },
+    {
+      "zone": "museum.ye",
+      "namespace_status": "PROPOSED",
+      "rule_type": "proposal-only",
+      "allowed_applicant_types": ["organization", "government"],
+      "required_evidence": ["institution_authorization", "authorized_contact"],
+      "decision_if_matched": "PROPOSED_ZONE",
+      "decision_if_not_matched": "PROPOSED_ZONE",
+      "reason_ar": "museum.ye مقترح بحثي للمتاحف والمؤسسات التراثية."
+    },
+    {
+      "zone": ".اليمن",
+      "namespace_status": "RESEARCH",
+      "rule_type": "research-only",
+      "allowed_applicant_types": [],
+      "required_evidence": [],
+      "decision_if_matched": "PROPOSED_ZONE",
+      "decision_if_not_matched": "PROPOSED_ZONE",
+      "reason_ar": "مسار IDN عربي بحثي وغير تشغيلي في المشروع."
+    }
+  ]
+}

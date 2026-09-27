@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GCC ccTLD Benchmark | YDII</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body{background:#f4f7fb}
+    .wrap{max-width:1180px;margin:auto;padding:42px 22px 90px}
+    .hero{background:#0a1020;color:white;border-radius:26px;padding:34px;margin-bottom:24px}
+    .hero h1{font-size:38px;margin:0 0 10px}
+    .hero p{color:#cbd6ea;max-width:900px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{background:white;border:1px solid #dfe5ee;border-radius:20px;padding:22px}
+    .row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #edf0f5;padding:8px 0}
+    .zones{direction:ltr;text-align:right;line-height:2}
+    .tag{display:inline-block;background:#eef4fa;border-radius:999px;padding:4px 9px;margin:3px;font-size:12px}
+    .yes{font-weight:700}
+    .lessons{margin-top:14px;background:#f8fafc;border-radius:12px;padding:12px}
+    @media(max-width:800px){.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
+  </style>
+  <link rel="stylesheet" href="ux-v2.css">
+</head>
+<body>
+<main id="main-content" class="wrap">
+  <section class="hero">
+    <h1>GCC ccTLD Benchmark</h1>
+    <p>مقارنة وصفية لنماذج نطاقات السعودية والإمارات وقطر وعُمان والبحرين والكويت لبناء نموذج يمني احترافي. هذه ليست عملية ترتيب أو تقييم.</p>
+  </section>
+  <section id="grid" class="grid"></section>
+</main>
+<script>
+fetch('data/gcc-benchmark.json')
+  .then(r=>r.json())
+  .then(d=>{
+    document.getElementById('grid').innerHTML=d.countries.map(c=>`
+      <article class="card">
+        <h2>${c.country_ar} <span dir="ltr">${c.cctld}</span></h2>
+        <div class="row"><span>Registry</span><b>${c.registry}</b></div>
+        <div class="row"><span>Registry / Registrar</span><b>${c.registry_registrar_model?'نعم':'لا'}</b></div>
+        <div class="row"><span>Direct 2LD</span><b>${c.direct_second_level?'نعم':'لا/غير متاح حالياً'}</b></div>
+        <div class="row"><span>Arabic IDN</span><b>${c.arabic_idn || '—'}</b></div>
+        <div class="row"><span>DNSSEC documented</span><b>${c.dnssec_documented?'نعم':'غير موثق هنا'}</b></div>
+        <h3>Zones</h3>
+        <div class="zones">${c.zones.map(z=>`<span class="tag">${z}</span>`).join('')}</div>
+        <div class="lessons">
+          <b>دروس قابلة للتكييف لليمن</b>
+          <ul>${c.key_lessons_for_yemen.map(x=>`<li>${x}</li>`).join('')}</ul>
+        </div>
+      </article>
+    `).join('');
+  });
+</script>
+  <script src="ux-v2.js" defer></script>
+</body>
+</html>

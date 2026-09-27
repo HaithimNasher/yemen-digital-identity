@@ -1,0 +1,154 @@
+{
+  "project": "YDII Professional v2",
+  "dataset": "GCC ccTLD Benchmark",
+  "updated": "2026-09-27",
+  "methodology": "Official registry/regulator sources only. Descriptive benchmark; not a ranking.",
+  "countries": [
+    {
+      "code": "SA",
+      "country_ar": "السعودية",
+      "country_en": "Saudi Arabia",
+      "cctld": ".sa",
+      "arabic_idn": ".السعودية",
+      "registry": "SaudiNIC",
+      "regulator_or_parent": "Communications, Space & Technology Commission (CST)",
+      "registry_registrar_model": true,
+      "direct_second_level": true,
+      "zones": [".sa",".com.sa",".net.sa",".gov.sa",".org.sa",".edu.sa",".med.sa",".sch.sa",".pub.sa",".السعودية"],
+      "dnssec_documented": true,
+      "eligibility_model": "National-presence/licence/trademark based, with zone-specific eligibility",
+      "key_lessons_for_yemen": [
+        "Publish explicit eligibility rules per zone",
+        "Use licensed registrars",
+        "Publish a DNSSEC Practice Statement",
+        "Support an Arabic national namespace"
+      ],
+      "sources": [
+        "https://www.nic.sa/en/help/regulation",
+        "https://www.nic.sa/en/help/saudinic-dnssec-practice",
+        "https://www.nic.sa/en/help/faq"
+      ]
+    },
+    {
+      "code": "AE",
+      "country_ar": "الإمارات",
+      "country_en": "United Arab Emirates",
+      "cctld": ".ae",
+      "arabic_idn": ".امارات",
+      "registry": ".aeDA",
+      "regulator_or_parent": "Telecommunications and Digital Government Regulatory Authority (TDRA)",
+      "registry_registrar_model": true,
+      "direct_second_level": true,
+      "zones": [".ae",".co.ae",".net.ae",".gov.ae",".org.ae",".sch.ae",".ac.ae",".mil.ae",".امارات"],
+      "dnssec_documented": true,
+      "eligibility_model": "Open second-level registration plus restricted/special-purpose zones",
+      "key_lessons_for_yemen": [
+        "Clear Registry/Registrar role separation",
+        "Accredit local and international registrars",
+        "Simple domain search and registrar choice workflow",
+        "Public policy and dispute-resolution structure"
+      ],
+      "sources": [
+        "https://tdra.gov.ae/en/aeda/about-us/about-aeda",
+        "https://tdra.gov.ae/en/aeda/accredited-registrars",
+        "https://tdra.gov.ae/en/FAQs"
+      ]
+    },
+    {
+      "code": "QA",
+      "country_ar": "قطر",
+      "country_en": "Qatar",
+      "cctld": ".qa",
+      "arabic_idn": ".قطر",
+      "registry": "Qatar Domains Registry",
+      "regulator_or_parent": "Communications Regulatory Authority (CRA)",
+      "registry_registrar_model": true,
+      "direct_second_level": true,
+      "zones": [".qa",".com.qa",".net.qa",".name.qa",".org.qa",".sch.qa",".edu.qa",".gov.qa",".mil.qa",".قطر"],
+      "dnssec_documented": true,
+      "eligibility_model": "Open .qa; documentary eligibility for sector-specific zones",
+      "key_lessons_for_yemen": [
+        "Combine an open national zone with restricted sector zones",
+        "Provide a personal namespace such as name.*",
+        "Publish documentary requirements for each restricted zone",
+        "Separate registrar-served zones from registry-direct restricted zones"
+      ],
+      "sources": [
+        "https://www.cra.gov.qa/en/FAQ",
+        "https://www.cra.gov.qa/en/Services/Domains/Check-A-Domain"
+      ]
+    },
+    {
+      "code": "OM",
+      "country_ar": "عُمان",
+      "country_en": "Oman",
+      "cctld": ".om",
+      "arabic_idn": ".عمان",
+      "registry": "Oman Domain Name Registry",
+      "regulator_or_parent": "Telecommunications Regulatory Authority (TRA)",
+      "registry_registrar_model": true,
+      "direct_second_level": true,
+      "zones": [".om",".co.om",".com.om",".org.om",".net.om",".edu.om",".gov.om",".mil.om",".museum.om",".pro.om",".med.om",".عمان"],
+      "dnssec_documented": true,
+      "eligibility_model": "National/sector eligibility with multiple specialist zones",
+      "key_lessons_for_yemen": [
+        "Use specialist zones only where real demand exists",
+        "Consider medical, professional and museum/heritage namespaces after policy study",
+        "Use accredited registrars",
+        "Tie zone eligibility to licensed sector status"
+      ],
+      "sources": [
+        "https://www.registry.om/mobile_version_10_dec_2012/?page=om",
+        "https://www.registry.om/mobile_version_10_dec_2012/?language=ar&page=om"
+      ]
+    },
+    {
+      "code": "BH",
+      "country_ar": "البحرين",
+      "country_en": "Bahrain",
+      "cctld": ".bh",
+      "arabic_idn": ".البحرين",
+      "registry": "Bahrain Domain Registry",
+      "regulator_or_parent": "Telecommunications Regulatory Authority (TRA)",
+      "registry_registrar_model": true,
+      "direct_second_level": true,
+      "zones": [".bh",".البحرين"],
+      "dnssec_documented": true,
+      "eligibility_model": "Online national domain registration through authorized local/global channels",
+      "key_lessons_for_yemen": [
+        "Use Registry/Registrar competition to improve service",
+        "Enable online registration channels",
+        "Treat Arabic IDN as part of the national digital identity",
+        "Keep the public registration experience simple"
+      ],
+      "sources": [
+        "https://www.tra.org.bh/en/article/tra-to-launch-online-registration-for-domain-names-bh-and",
+        "https://www.tra.org.bh/Media/Interactive_Annual_Reports/2019/en/"
+      ]
+    },
+    {
+      "code": "KW",
+      "country_ar": "الكويت",
+      "country_en": "Kuwait",
+      "cctld": ".kw",
+      "arabic_idn": null,
+      "registry": "Kuwait ccTLD / Internet Domain Department",
+      "regulator_or_parent": "Communication and Information Technology Regulatory Authority (CITRA)",
+      "registry_registrar_model": true,
+      "direct_second_level": false,
+      "zones": [".com.kw",".net.kw",".org.kw",".edu.kw",".gov.kw",".ind.kw"],
+      "dnssec_documented": true,
+      "eligibility_model": "Accredited registrar model with sector-specific subdomains and published policy suite",
+      "key_lessons_for_yemen": [
+        "Publish a complete policy library",
+        "Have reserved/blocked names policy",
+        "Define expiry and renewal lifecycle",
+        "Formalize registrar accreditation and technical tests"
+      ],
+      "sources": [
+        "https://login.nic.kw/en/policies/",
+        "https://fms.nic.kw/en/support/faqs/"
+      ]
+    }
+  ]
+}

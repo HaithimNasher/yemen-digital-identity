@@ -1,0 +1,30 @@
+{
+  "project": "YDII Professional v2",
+  "dataset": "Domain Search Configuration",
+  "version": "2.0-draft",
+  "updated": "2026-09-27",
+  "status": "DRAFT_SEARCH_ENGINE",
+  "notice_ar": "محرك البحث لا يفسر عدم وجود سجل RDAP على أنه توفر للتسجيل. قرار التوفر النهائي يحتاج سجل/مسجل تشغيلي معتمد.",
+  "candidate_zones": [
+    {"zone": ".ye", "mode": "LIVE_CHECK", "namespace_status": "CURRENT"},
+    {"zone": "com.ye", "mode": "LIVE_CHECK", "namespace_status": "CURRENT"},
+    {"zone": "org.ye", "mode": "LIVE_CHECK", "namespace_status": "CURRENT"},
+    {"zone": "net.ye", "mode": "LIVE_CHECK", "namespace_status": "CURRENT"},
+    {"zone": "gov.ye", "mode": "RESTRICTED", "namespace_status": "RESTRICTED"},
+    {"zone": "edu.ye", "mode": "RESTRICTED", "namespace_status": "RESTRICTED"},
+    {"zone": "sch.ye", "mode": "PROPOSED_ONLY", "namespace_status": "PROPOSED"},
+    {"zone": "med.ye", "mode": "PROPOSED_ONLY", "namespace_status": "PROPOSED"},
+    {"zone": "name.ye", "mode": "PROPOSED_ONLY", "namespace_status": "PROPOSED"},
+    {"zone": "pro.ye", "mode": "PROPOSED_ONLY", "namespace_status": "PROPOSED"},
+    {"zone": "museum.ye", "mode": "PROPOSED_ONLY", "namespace_status": "PROPOSED"}
+  ],
+  "result_states": [
+    "REGISTERED",
+    "NOT_FOUND_IN_RDAP",
+    "RESERVED",
+    "RESTRICTED",
+    "PROPOSED_ZONE",
+    "QUERY_ERROR",
+    "UNKNOWN"
+  ]
+}

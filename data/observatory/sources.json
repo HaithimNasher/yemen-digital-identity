@@ -1,0 +1,22 @@
+{
+  "updated": "2026-09-27",
+  "sources": [
+    {
+      "name": "IANA .YE Delegation Record",
+      "url": "https://www.iana.org/domains/root/db/ye.html",
+      "purpose": "Authoritative TLD delegation metadata"
+    },
+    {
+      "name": "IANA RDAP DNS Bootstrap Registry",
+      "url": "https://data.iana.org/rdap/dns.json",
+      "purpose": "RDAP service discovery"
+    }
+  ],
+  "ye_registry_metadata": {
+    "tld": "ye",
+    "manager": "TeleYemen",
+    "whois_server": "whois.y.net.ye",
+    "rdap_base_url": "https://rdap.y.net.ye/",
+    "metadata_status": "IANA-published"
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "query": "yemenai",
+  "mode": "LIVE_RDAP",
+  "notice_ar": "NOT_FOUND_IN_RDAP لا يعني AVAILABLE. التوفر الحقيقي يحتاج خدمة Registry/Registrar تشغيلية.",
+  "results": [
+    {
+      "label": "yemenai",
+      "zone": ".ye",
+      "domain": "yemenai.ye",
+      "namespace_status": "CURRENT",
+      "mode": "LIVE_CHECK",
+      "search_state": "QUERY_ERROR",
+      "registration_availability": "NOT_DETERMINED",
+      "reason_ar": "تعذر الحصول على نتيجة RDAP حاسمة.",
+      "rdap": {
+        "status": "QUERY_ERROR",
+        "http_status": null,
+        "endpoint": "https://rdap.y.net.ye/domain/yemenai.ye",
+        "discovery": "IANA_YE_METADATA",
+        "error": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+      }
+    },
+    {
+      "label": "yemenai",
+      "zone": "com.ye",
+      "domain": "yemenai.com.ye",
+      "namespace_status": "CURRENT",
+      "mode": "LIVE_CHECK",
+      "search_state": "QUERY_ERROR",
+      "registration_availability": "NOT_DETERMINED",
+      "reason_ar": "تعذر الحصول على نتيجة RDAP حاسمة.",
+      "rdap": {
+        "status": "QUERY_ERROR",
+        "http_status": null,
+        "endpoint": "https://rdap.y.net.ye/domain/yemenai.com.ye",
+        "discovery": "IANA_YE_METADATA",
+        "error": "TimeoutError: The read operation timed out"
+      }
+    },
+    {
+      "label": "yemenai",
+      "zone": "org.ye",
+      "domain": "yemenai.org.ye",
+      "namespace_status": "CURRENT",
+      "mode": "LIVE_CHECK",
+      "search_state": "QUERY_ERROR",
+      "registration_availability": "NOT_DETERMINED",
+      "reason_ar": "تعذر الحصول على نتيجة RDAP حاسمة.",
+      "rdap": {
+        "status": "QUERY_ERROR",
+        "http_status": null,
+        "endpoint": "https://rdap.y.net.ye/domain/yemenai.org.ye",
+        "discovery": "IANA_YE_METADATA",
+        "error": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+      }
+    },
+    {
+      "label": "yemenai",
+      "zone": "net.ye",
+      "domain": "yemenai.net.ye",
+      "namespace_status": "CURRENT",
+      "mode": "LIVE_CHECK",
+      "search_state": "QUERY_ERROR",
+      "registration_availability": "NOT_DETERMINED",
+      "reason_ar": "تعذر الحصول على نتيجة RDAP حاسمة.",
+      "rdap": {
+        "status": "QUERY_ERROR",
+        "http_status": null,
+        "endpoint": "https://rdap.y.net.ye/domain/yemenai.net.ye",
+        "discovery": "IANA_YE_METADATA",
+        "error": "URLError: <urlopen error timed out>"
+      }
+    },
+    {
+      "label": "yemenai",
+      "zone": "gov.ye",
+      "domain": "yemenai.gov.ye",
+      "namespace_status": "RESTRICTED",
+      "mode": "RESTRICTED",
+      "search_state": "RESTRICTED",
+      "registration_availability": "NOT_DETERMINED",
+      "reason_ar": "هذه منطقة مقيدة وتتطلب تحقق الأهلية قبل أي عملية تسجيل. تعذر الحصول على نتيجة RDAP حاسمة.",
+      "rdap": {
+        "status": "QUERY_ERROR",
+        "http_status": null,
+        "endpoint": "https://rdap.y.net.ye/domain/yemenai.gov.ye",
+        "discovery": "IANA_YE_METADATA",
+        "error": "URLError: <urlopen error timed out>"
+      }
+    },
+    {
+      "label": "yemenai",
+      "zone": "edu.ye",
+      "domain": "yemenai.edu.ye",
+      "namespace_status": "RESTRICTED",
+      "mode": "RESTRICTED",
+      "search_state": "RESTRICTED",
+      "registration_availability": "NOT_DETERMINED",
+      "reason_ar": "هذه منطقة مقيدة وتتطلب تحقق الأهلية قبل أي عملية تسجيل. تعذر الحصول على نتيجة RDAP حاسمة.",
+      "rdap": {
+        "status": "QUERY_ERROR",
+        "http_status": null,
+        "endpoint": "https://rdap.y.net.ye/domain/yemenai.edu.ye",
+        "discovery": "IANA_YE_METADATA",
+        "error": "URLError: <urlopen error timed out>"
+      }
+    },
+    {
+      "label": "yemenai",
+      "zone": "sch.ye",
+      "domain": "yemenai.sch.ye",
+      "namespace_status": "PROPOSED",
+      "mode": "PROPOSED_ONLY",
+      "search_state": "PROPOSED_ZONE",
+      "registration_availability": "NOT_DETERMINED",
+      "reason_ar": "المنطقة مقترحة بحثيًا وليست منطقة تسجيل تشغيلية.",
+      "rdap": null
+    },
+    {
+      "label": "yemenai",
+      "zone": "med.ye",
+      "domain": "yemenai.med.ye",
+      "namespace_status": "PROPOSED",
+      "mode": "PROPOSED_ONLY",
+      "search_state": "PROPOSED_ZONE",
+      "registration_availability": "NOT_DETERMINED",
+      "reason_ar": "المنطقة مقترحة بحثيًا وليست منطقة تسجيل تشغيلية.",
+      "rdap": null
+    },
+    {
+      "label": "yemenai",
+      "zone": "name.ye",
+      "domain": "yemenai.name.ye",
+      "namespace_status": "PROPOSED",
+      "mode": "PROPOSED_ONLY",
+      "search_state": "PROPOSED_ZONE",
+      "registration_availability": "NOT_DETERMINED",
+      "reason_ar": "المنطقة مقترحة بحثيًا وليست منطقة تسجيل تشغيلية.",
+      "rdap": null
+    },
+    {
+      "label": "yemenai",
+      "zone": "pro.ye",
+      "domain": "yemenai.pro.ye",
+      "namespace_status": "PROPOSED",
+      "mode": "PROPOSED_ONLY",
+      "search_state": "PROPOSED_ZONE",
+      "registration_availability": "NOT_DETERMINED",
+      "reason_ar": "المنطقة مقترحة بحثيًا وليست منطقة تسجيل تشغيلية.",
+      "rdap": null
+    },
+    {
+      "label": "yemenai",
+      "zone": "museum.ye",
+      "domain": "yemenai.museum.ye",
+      "namespace_status": "PROPOSED",
+      "mode": "PROPOSED_ONLY",
+      "search_state": "PROPOSED_ZONE",
+      "registration_availability": "NOT_DETERMINED",
+      "reason_ar": "المنطقة مقترحة بحثيًا وليست منطقة تسجيل تشغيلية.",
+      "rdap": null
+    }
+  ]
+}

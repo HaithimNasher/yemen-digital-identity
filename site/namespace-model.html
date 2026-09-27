@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>YE Namespace Model | YDII</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body{background:#f5f8fc}
+    .wrap{max-width:1180px;margin:auto;padding:42px 22px 90px}
+    .hero{background:#0a1020;color:#fff;border-radius:26px;padding:34px;margin-bottom:24px}
+    .hero h1{font-size:38px;margin:0 0 10px}
+    .hero p{color:#cbd6ea;max-width:900px}
+    .legend{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}
+    .badge{padding:7px 11px;border-radius:999px;font-size:12px;font-weight:700;background:#e9eef5}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .card{background:white;border:1px solid #dfe5ee;border-radius:18px;padding:20px}
+    .zone{direction:ltr;text-align:right;font-size:28px;font-weight:800;color:#0c6f8b}
+    .purpose{font-size:17px;margin:8px 0}
+    .meta{color:#6a778b;font-size:14px}
+    .current{border-right:5px solid #2d8f60}
+    .restricted{border-right:5px solid #2f6eb8}
+    .proposed{border-right:5px solid #d9a023}
+    .research{border-right:5px solid #8659b5}
+    .reserved{border-right:5px solid #9b4b4b}
+    .section-title{margin-top:34px}
+    .reserved-list{display:grid;gap:12px}
+    @media(max-width:800px){.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
+  </style>
+  <link rel="stylesheet" href="ux-v2.css">
+</head>
+<body>
+<main id="main-content" class="wrap">
+  <section class="hero">
+    <h1>YE Namespace Model</h1>
+    <p>نموذج احترافي يفصل بين النطاقات الحالية والمقيدة والمقترحة والبحثية والأسماء المحجوزة، حتى لا تختلط الحقائق التشغيلية مع المقترحات المستقبلية.</p>
+  </section>
+
+  <div class="legend">
+    <span class="badge">CURRENT</span>
+    <span class="badge">RESTRICTED</span>
+    <span class="badge">PROPOSED</span>
+    <span class="badge">RESEARCH</span>
+    <span class="badge">RESERVED</span>
+  </div>
+
+  <section id="zones" class="grid"></section>
+
+  <h2 class="section-title">Reserved Name Classes</h2>
+  <section id="reserved" class="reserved-list"></section>
+</main>
+
+<script>
+fetch('data/yemen-namespace-model.json')
+  .then(r=>r.json())
+  .then(d=>{
+    const zones=document.getElementById('zones');
+    zones.innerHTML=d.zones.map(x=>`
+      <article class="card ${x.status.toLowerCase()}">
+        <div class="zone">${x.zone}</div>
+        <div class="purpose">${x.purpose_ar}</div>
+        <div class="meta">${x.status} · ${x.policy_class}</div>
+        <div class="meta">${x.registration_model}</div>
+        ${x.benchmark_basis ? `<div class="meta">GCC basis: ${x.benchmark_basis.join(' · ')}</div>` : ''}
+      </article>
+    `).join('');
+
+    document.getElementById('reserved').innerHTML=d.reserved_name_classes.map(x=>`
+      <article class="card reserved">
+        <b>${x.class}</b>
+        <div class="meta">${x.examples.join(' · ')}</div>
+        <div>${x.reason_ar}</div>
+      </article>
+    `).join('');
+  });
+</script>
+  <script src="ux-v2.js" defer></script>
+</body>
+</html>

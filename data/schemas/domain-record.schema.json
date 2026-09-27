@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ydii.example/schema/domain-record.schema.json",
+  "title": "YDII Registry Domain Record",
+  "type": "object",
+  "required": [
+    "domain_name",
+    "zone",
+    "state",
+    "registrar_id",
+    "created_at",
+    "expires_at"
+  ],
+  "properties": {
+    "domain_name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "zone": {
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "PENDING_CREATE",
+        "ACTIVE",
+        "SUSPENDED",
+        "EXPIRED_GRACE",
+        "REDEMPTION",
+        "PENDING_DELETE",
+        "DELETED",
+        "RESERVED"
+      ]
+    },
+    "registrar_id": {
+      "type": "string"
+    },
+    "registrant_handle": {
+      "type": ["string", "null"]
+    },
+    "nameservers": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "ds_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key_tag", "algorithm", "digest_type", "digest"],
+        "properties": {
+          "key_tag": {"type": "integer"},
+          "algorithm": {"type": "integer"},
+          "digest_type": {"type": "integer"},
+          "digest": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}

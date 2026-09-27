@@ -1,0 +1,299 @@
+{
+  "generated_at": "2026-09-26T22:47:19+00:00",
+  "mode": "LIVE_OBSERVATION",
+  "notice_ar": "هذه نتائج رصد شبكي لحظية وليست إثبات ملكية أو توافر للتسجيل. NOT_FOUND_IN_RDAP لا يعني AVAILABLE. DNSSEC هنا دليل DS/RRSIG فقط ولا يمثل تحققاً تشفيرياً كاملاً.",
+  "tooling": {
+    "dig_available": true,
+    "rdap_discovery": "IANA metadata/bootstrap"
+  },
+  "summary": {
+    "targets_checked": 5,
+    "dns_ipv4_present": 0,
+    "dns_ipv6_present": 0,
+    "tls_valid": 0,
+    "https_responded": 0,
+    "rdap_found": 3,
+    "dnssec_ds_or_rrsig_evidence": 0
+  },
+  "results": [
+    {
+      "domain": "ye",
+      "kind": "namespace",
+      "label_ar": "النطاق الوطني الأعلى .ye",
+      "source": "YDII namespace model",
+      "checked_at": "2026-09-26T22:45:39+00:00",
+      "dns": {
+        "a": [],
+        "aaaa": [],
+        "resolver_error": "gaierror: [Errno 7] No address associated with hostname",
+        "ns": [
+          "d.tld.ye.",
+          "tld1.ye.",
+          "tld2.ye.",
+          "tld3.ye.",
+          "e.tld.ye."
+        ],
+        "ns_query_status": "OK",
+        "mx": [],
+        "mx_query_status": "OK",
+        "caa": [],
+        "caa_query_status": "OK",
+        "ds": [],
+        "ds_query_status": "OK",
+        "rrsig": [],
+        "dnssec_evidence": "NO_SIGNING_EVIDENCE_OBSERVED",
+        "dnssec_validated": false,
+        "dnssec_note": "DS/RRSIG evidence only; full chain validation is not claimed."
+      },
+      "tls": {
+        "reachable": false,
+        "certificate_valid": false,
+        "protocol": null,
+        "cipher": null,
+        "not_after": null,
+        "days_remaining": null,
+        "error": "gaierror: [Errno 7] No address associated with hostname"
+      },
+      "http": {
+        "url": "https://ye/",
+        "status": null,
+        "final_url": null,
+        "latency_ms": 23.8,
+        "error": "URLError: <urlopen error [Errno 7] No address associated with hostname>"
+      },
+      "rdap": {
+        "status": "HTTP_ERROR",
+        "http_status": 400,
+        "endpoint": "https://rdap.y.net.ye/domain/ye",
+        "discovery": "IANA_YE_METADATA",
+        "error": null
+      },
+      "probe_duration_ms": 20229.9
+    },
+    {
+      "domain": "gov.ye",
+      "kind": "namespace",
+      "label_ar": "الحكومة",
+      "source": "YDII namespace model",
+      "checked_at": "2026-09-26T22:45:59+00:00",
+      "dns": {
+        "a": [],
+        "aaaa": [],
+        "resolver_error": "gaierror: [Errno 7] No address associated with hostname",
+        "ns": [
+          "d.tld.ye.",
+          "tld1.ye.",
+          "e.tld.ye.",
+          "tld3.ye.",
+          "tld2.ye."
+        ],
+        "ns_query_status": "OK",
+        "mx": [],
+        "mx_query_status": "OK",
+        "caa": [],
+        "caa_query_status": "OK",
+        "ds": [],
+        "ds_query_status": "OK",
+        "rrsig": [],
+        "dnssec_evidence": "NO_SIGNING_EVIDENCE_OBSERVED",
+        "dnssec_validated": false,
+        "dnssec_note": "DS/RRSIG evidence only; full chain validation is not claimed."
+      },
+      "tls": {
+        "reachable": false,
+        "certificate_valid": false,
+        "protocol": null,
+        "cipher": null,
+        "not_after": null,
+        "days_remaining": null,
+        "error": "gaierror: [Errno 7] No address associated with hostname"
+      },
+      "http": {
+        "url": "https://gov.ye/",
+        "status": null,
+        "final_url": null,
+        "latency_ms": 2.0,
+        "error": "URLError: <urlopen error [Errno 7] No address associated with hostname>"
+      },
+      "rdap": {
+        "status": "FOUND",
+        "http_status": 200,
+        "endpoint": "https://rdap.y.net.ye/domain/gov.ye",
+        "discovery": "IANA_YE_METADATA",
+        "ldhName": "gov.ye",
+        "unicodeName": null,
+        "objectClassName": "domain",
+        "error": null
+      },
+      "probe_duration_ms": 19543.9
+    },
+    {
+      "domain": "edu.ye",
+      "kind": "namespace",
+      "label_ar": "التعليم",
+      "source": "YDII namespace model",
+      "checked_at": "2026-09-26T22:46:19+00:00",
+      "dns": {
+        "a": [],
+        "aaaa": [],
+        "resolver_error": "gaierror: [Errno 7] No address associated with hostname",
+        "ns": [
+          "tld2.ye.",
+          "e.tld.ye.",
+          "d.tld.ye.",
+          "tld1.ye.",
+          "tld3.ye."
+        ],
+        "ns_query_status": "OK",
+        "mx": [],
+        "mx_query_status": "OK",
+        "caa": [],
+        "caa_query_status": "OK",
+        "ds": [],
+        "ds_query_status": "OK",
+        "rrsig": [],
+        "dnssec_evidence": "NO_SIGNING_EVIDENCE_OBSERVED",
+        "dnssec_validated": false,
+        "dnssec_note": "DS/RRSIG evidence only; full chain validation is not claimed."
+      },
+      "tls": {
+        "reachable": false,
+        "certificate_valid": false,
+        "protocol": null,
+        "cipher": null,
+        "not_after": null,
+        "days_remaining": null,
+        "error": "gaierror: [Errno 7] No address associated with hostname"
+      },
+      "http": {
+        "url": "https://edu.ye/",
+        "status": null,
+        "final_url": null,
+        "latency_ms": 2.6,
+        "error": "URLError: <urlopen error [Errno 7] No address associated with hostname>"
+      },
+      "rdap": {
+        "status": "FOUND",
+        "http_status": 200,
+        "endpoint": "https://rdap.y.net.ye/domain/edu.ye",
+        "discovery": "IANA_YE_METADATA",
+        "ldhName": "edu.ye",
+        "unicodeName": null,
+        "objectClassName": "domain",
+        "error": null
+      },
+      "probe_duration_ms": 14498.8
+    },
+    {
+      "domain": "com.ye",
+      "kind": "namespace",
+      "label_ar": "التجارة",
+      "source": "YDII namespace model",
+      "checked_at": "2026-09-26T22:46:33+00:00",
+      "dns": {
+        "a": [],
+        "aaaa": [],
+        "resolver_error": "gaierror: [Errno 7] No address associated with hostname",
+        "ns": [
+          "tld2.ye.",
+          "tld1.ye.",
+          "tld3.ye.",
+          "e.tld.ye.",
+          "d.tld.ye."
+        ],
+        "ns_query_status": "OK",
+        "mx": [],
+        "mx_query_status": "OK",
+        "caa": [],
+        "caa_query_status": "OK",
+        "ds": [],
+        "ds_query_status": "OK",
+        "rrsig": [],
+        "dnssec_evidence": "NO_SIGNING_EVIDENCE_OBSERVED",
+        "dnssec_validated": false,
+        "dnssec_note": "DS/RRSIG evidence only; full chain validation is not claimed."
+      },
+      "tls": {
+        "reachable": false,
+        "certificate_valid": false,
+        "protocol": null,
+        "cipher": null,
+        "not_after": null,
+        "days_remaining": null,
+        "error": "gaierror: [Errno 7] No address associated with hostname"
+      },
+      "http": {
+        "url": "https://com.ye/",
+        "status": null,
+        "final_url": null,
+        "latency_ms": 4.9,
+        "error": "URLError: <urlopen error [Errno 7] No address associated with hostname>"
+      },
+      "rdap": {
+        "status": "FOUND",
+        "http_status": 200,
+        "endpoint": "https://rdap.y.net.ye/domain/com.ye",
+        "discovery": "IANA_YE_METADATA",
+        "ldhName": "com.ye",
+        "unicodeName": null,
+        "objectClassName": "domain",
+        "error": null
+      },
+      "probe_duration_ms": 20493.5
+    },
+    {
+      "domain": "org.ye",
+      "kind": "namespace",
+      "label_ar": "المنظمات",
+      "source": "YDII namespace model",
+      "checked_at": "2026-09-26T22:46:54+00:00",
+      "dns": {
+        "a": [],
+        "aaaa": [],
+        "resolver_error": "gaierror: [Errno 7] No address associated with hostname",
+        "ns": [
+          "d.tld.ye.",
+          "tld2.ye.",
+          "tld3.ye.",
+          "e.tld.ye.",
+          "tld1.ye."
+        ],
+        "ns_query_status": "OK",
+        "mx": [],
+        "mx_query_status": "OK",
+        "caa": [],
+        "caa_query_status": "OK",
+        "ds": [],
+        "ds_query_status": "OK",
+        "rrsig": [],
+        "dnssec_evidence": "NO_SIGNING_EVIDENCE_OBSERVED",
+        "dnssec_validated": false,
+        "dnssec_note": "DS/RRSIG evidence only; full chain validation is not claimed."
+      },
+      "tls": {
+        "reachable": false,
+        "certificate_valid": false,
+        "protocol": null,
+        "cipher": null,
+        "not_after": null,
+        "days_remaining": null,
+        "error": "gaierror: [Errno 7] No address associated with hostname"
+      },
+      "http": {
+        "url": "https://org.ye/",
+        "status": null,
+        "final_url": null,
+        "latency_ms": 2.9,
+        "error": "URLError: <urlopen error [Errno 7] No address associated with hostname>"
+      },
+      "rdap": {
+        "status": "QUERY_ERROR",
+        "http_status": null,
+        "endpoint": "https://rdap.y.net.ye/domain/org.ye",
+        "discovery": "IANA_YE_METADATA",
+        "error": "URLError: <urlopen error timed out>"
+      },
+      "probe_duration_ms": 24819.5
+    }
+  ]
+}

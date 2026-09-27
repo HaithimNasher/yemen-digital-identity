@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Policy Center | YDII</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body{background:#f5f8fc;color:#18202b}
+    .wrap{max-width:1180px;margin:auto;padding:42px 22px 90px}
+    .hero{background:#091225;color:white;border-radius:26px;padding:34px}
+    .hero h1{font-size:38px;margin:0 0 10px}
+    .hero p{color:#c6d1e5;max-width:900px}
+    .notice{background:#fff5cf;border-right:4px solid #d69d12;border-radius:12px;padding:14px;margin:18px 0}
+    .controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+    input,select{padding:12px 14px;border:1px solid #ccd5e2;border-radius:11px;background:#fff}
+    input{flex:1;min-width:230px}
+    .stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .stats span{background:white;border:1px solid #dfe5ee;border-radius:999px;padding:8px 12px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+    .card{background:white;border:1px solid #dfe5ee;border-radius:18px;padding:20px}
+    .title{font-weight:800;font-size:19px}
+    .en{direction:ltr;text-align:right;color:#607086}
+    .badge{display:inline-block;background:#edf3f8;border-radius:999px;padding:4px 8px;font-size:11px;margin-top:8px}
+    .domain{background:#eef7fb}
+    @media(max-width:760px){.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
+  </style>
+  <link rel="stylesheet" href="ux-v2.css">
+</head>
+<body>
+<main id="main-content" class="wrap">
+  <section class="hero">
+    <h1>Policy Center</h1>
+    <p>مكتبة حوكمة وسياسات تجريبية لنموذج سجل نطاق وطني احترافي، مع فصل صريح بين التصميم البحثي والسياسة الرسمية.</p>
+  </section>
+
+  <div class="notice">
+    DRAFT POLICY LIBRARY — هذه الوثائق ليست سياسات رسمية أو ملزمة لسجل .ye.
+  </div>
+
+  <div class="controls">
+    <input id="q" placeholder="ابحث في السياسات...">
+    <select id="domain">
+      <option value="all">كل المجالات</option>
+    </select>
+  </div>
+
+  <div id="stats" class="stats"></div>
+  <section id="grid" class="grid"></section>
+</main>
+
+<script>
+let catalog;
+
+function render(){
+  const term=document.getElementById('q').value.trim().toLowerCase();
+  const domain=document.getElementById('domain').value;
+
+  const rows=catalog.policies.filter(x=>{
+    const hay=[x.title_ar,x.title_en,x.id,x.domain,x.status].join(' ').toLowerCase();
+    return (domain==='all'||x.domain===domain) && (!term||hay.includes(term));
+  });
+
+  const groups=[...new Set(catalog.policies.map(x=>x.domain))];
+  document.getElementById('stats').innerHTML=`
+    <span>Policies: ${catalog.policies.length}</span>
+    <span>Domains: ${groups.length}</span>
+    <span>Status: ${catalog.status}</span>
+  `;
+
+  document.getElementById('grid').innerHTML=rows.map(x=>`
+    <article class="card">
+      <div class="title">${x.title_ar}</div>
+      <div class="en">${x.title_en}</div>
+      <span class="badge">${x.status}</span>
+      <span class="badge domain">${x.domain}</span>
+      <div class="en" style="margin-top:10px">${x.file}</div>
+    </article>
+  `).join('');
+}
+
+fetch('data/policy-catalog.json')
+  .then(r=>r.json())
+  .then(d=>{
+    catalog=d;
+    const groups=[...new Set(d.policies.map(x=>x.domain))].sort();
+    document.getElementById('domain').innerHTML=
+      '<option value="all">كل المجالات</option>' +
+      groups.map(x=>`<option value="${x}">${x}</option>`).join('');
+    render();
+  });
+
+document.getElementById('q').addEventListener('input',render);
+document.getElementById('domain').addEventListener('change',render);
+</script>
+  <script src="ux-v2.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+{
+  "project": "YDII Professional v2",
+  "dataset": "Domain Lifecycle Model",
+  "status": "DRAFT_POLICY_MODEL",
+  "states": [
+    {
+      "id": "AVAILABLE",
+      "description_ar": "الاسم متاح من منظور السجل بعد اجتياز قواعد الحجز والأهلية."
+    },
+    {
+      "id": "PENDING_CREATE",
+      "description_ar": "طلب إنشاء قيد التحقق أو الموافقة."
+    },
+    {
+      "id": "ACTIVE",
+      "description_ar": "اسم النطاق مسجل وفعال."
+    },
+    {
+      "id": "SUSPENDED",
+      "description_ar": "موقوف إداريًا أو أمنيًا وفق السياسة."
+    },
+    {
+      "id": "EXPIRED_GRACE",
+      "description_ar": "انتهت المدة وما زال النطاق في فترة سماح للتجديد."
+    },
+    {
+      "id": "REDEMPTION",
+      "description_ar": "مرحلة استرداد قبل الحذف النهائي، إذا اعتمدتها السياسة."
+    },
+    {
+      "id": "PENDING_DELETE",
+      "description_ar": "مجدول للحذف النهائي ولا يقبل تعديلات عادية."
+    },
+    {
+      "id": "DELETED",
+      "description_ar": "حذف السجل من قاعدة التسجيل وقد يصبح متاحًا وفق السياسة."
+    },
+    {
+      "id": "RESERVED",
+      "description_ar": "اسم محجوز وغير متاح للتسجيل العادي."
+    }
+  ],
+  "transitions": [
+    {"from":"AVAILABLE","action":"create_request","to":"PENDING_CREATE"},
+    {"from":"PENDING_CREATE","action":"approve_create","to":"ACTIVE"},
+    {"from":"PENDING_CREATE","action":"reject_create","to":"AVAILABLE"},
+    {"from":"ACTIVE","action":"suspend","to":"SUSPENDED"},
+    {"from":"SUSPENDED","action":"restore","to":"ACTIVE"},
+    {"from":"ACTIVE","action":"expire","to":"EXPIRED_GRACE"},
+    {"from":"EXPIRED_GRACE","action":"renew","to":"ACTIVE"},
+    {"from":"EXPIRED_GRACE","action":"grace_end","to":"REDEMPTION"},
+    {"from":"REDEMPTION","action":"restore","to":"ACTIVE"},
+    {"from":"REDEMPTION","action":"redemption_end","to":"PENDING_DELETE"},
+    {"from":"PENDING_DELETE","action":"delete","to":"DELETED"},
+    {"from":"DELETED","action":"release","to":"AVAILABLE"}
+  ],
+  "operations": [
+    "create",
+    "renew",
+    "transfer",
+    "update_contacts",
+    "update_nameservers",
+    "submit_ds",
+    "remove_ds",
+    "suspend",
+    "restore",
+    "delete"
+  ],
+  "timers": {
+    "grace_days": null,
+    "redemption_days": null,
+    "pending_delete_days": null,
+    "note_ar": "الأرقام التشغيلية غير محددة في هذه المرحلة، وتبقى قرارًا سياساتيًا لاحقًا."
+  }
+}
