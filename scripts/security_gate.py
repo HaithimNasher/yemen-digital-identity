@@ -18,11 +18,13 @@ SKIP_PREFIXES=(
     "backups/",
 )
 
+# Build sensitive markers from fragments so this scanner does not
+# falsely detect its own source code as containing private-key material.
 PRIVATE_KEY_MARKERS=(
-    "-----BEGIN RSA PRIVATE KEY-----",
-    "-----BEGIN EC PRIVATE KEY-----",
-    "-----BEGIN OPENSSH PRIVATE KEY-----",
-    "-----BEGIN PRIVATE KEY-----",
+    "-----BEGIN " + "RSA PRIVATE KEY-----",
+    "-----BEGIN " + "EC PRIVATE KEY-----",
+    "-----BEGIN " + "OPENSSH PRIVATE KEY-----",
+    "-----BEGIN " + "PRIVATE KEY-----",
 )
 
 SECRET_PATTERNS=[
